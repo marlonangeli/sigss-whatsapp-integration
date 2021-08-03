@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="images">
+    <file>icons/arrow_down.png</file>
+    <file>icons/arrow_right.png</file>
+    <file>icons/close.png</file>
+    <file>icons/home.png</file>
+    <file>icons/info.png</file>
+    <file>icons/logoff.png</file>
+    <file>icons/menu.png</file>
+    <file>icons/settings.png</file>
+    <file>background.png</file>
+  </qresource>
+</RCC>
