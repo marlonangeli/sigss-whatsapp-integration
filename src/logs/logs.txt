@@ -1,25 +1,11 @@
-2021-07-28 20:40:22 - [whatsapp.py]>[login] INFO: Verificando qr code, count: 1 = 0
-2021-07-28 20:40:23 - [whatsapp.py]>[login] INFO: Capturando qr code ==> <selenium.webdriver.remote.webelement.WebElement (session="14446e54411c07f8bc394d62a7e8878d", element="a4f630e0-0071-4c7d-83fc-5ac602a716f9")>
-2021-07-28 20:40:28 - [whatsapp.py]>[login] INFO: Verificando qr code, count: 2 = 0
-2021-07-28 20:40:28 - [whatsapp.py]>[login] INFO: Capturando qr code ==> <selenium.webdriver.remote.webelement.WebElement (session="14446e54411c07f8bc394d62a7e8878d", element="a4f630e0-0071-4c7d-83fc-5ac602a716f9")>
-2021-07-28 20:40:33 - [whatsapp.py]>[login] INFO: Verificando qr code, count: 3 = 0
-2021-07-30 00:08:07 - [sigss_mv.py]>[Sistema._logout] ERRO: Ocorreu algum erro no sistema SIGSS: MARLONANGELI
-2021-07-30 00:13:58 - [sigss_mv.py]>[Sistema._login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-07-30 00:15:49 - [sigss_mv.py]>[Sistema._login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-07-30 00:17:26 - [sigss_mv.py]>[Sistema._login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-07-30 00:20:31 - [sigss_mv.py]>[Sistema._login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-07-30 00:28:46 - [sigss_mv.py]>[Sistema._login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-07-30 00:32:37 - [sigss_mv.py]>[Sistema._login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-07-30 00:34:34 - [sigss_mv.py]>[Sistema._login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-07-30 00:35:23 - [sigss_mv.py]>[Sistema._login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-07-30 00:35:31 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-07-30 00:35:35 - [sigss_mv.py]>[Sistema._login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
-2021-07-30 00:35:40 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
-2021-07-30 00:39:03 - [sigss_mv.py]>[Sistema._login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-07-30 00:39:11 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-07-30 00:39:17 - [sigss_mv.py]>[Sistema._login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
-2021-07-30 00:39:22 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
-2021-08-02 21:59:30 - [sigss_mv.py]>[Sistema._login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-08-02 21:59:35 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-08-02 21:59:43 - [sigss_mv.py]>[Sistema._login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
-2021-08-02 21:59:48 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-09 22:54:04 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-09 22:57:06 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-09 22:59:58 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-09 23:02:25 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-09 23:06:18 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-09 23:13:46 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-09 23:16:26 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-09 23:19:10 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-09 23:22:55 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-09 23:26:43 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-09 23:26:56 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI

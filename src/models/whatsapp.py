@@ -179,13 +179,9 @@ class WhatsApp:
     #     self.logout()
     #     self.__driver.quit()
 
-# TODO Pegar foto e nome do usuario do whats
-# TODO corrigir a verificacao do numero (janela flutuante no chrome)
-
 
 if __name__ == '__main__':
     whatsapp = WhatsApp('45984214127', 'Teste1')
     # whatsapp.login()
     whatsapp.send_message('Teste1')
-    print('Ok')
     whatsapp.logout()
