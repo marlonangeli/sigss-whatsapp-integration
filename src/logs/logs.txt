@@ -9,3 +9,11 @@
 2021-08-09 23:22:55 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
 2021-08-09 23:26:43 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
 2021-08-09 23:26:56 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-16 21:23:08 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-16 21:28:55 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-16 21:31:35 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-16 21:31:44 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-16 21:35:17 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-16 21:35:28 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-16 21:55:25 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-16 21:55:36 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI

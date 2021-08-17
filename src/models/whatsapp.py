@@ -13,9 +13,9 @@ from urllib import parse, request
 from tools.logs import add_log
 
 class WhatsApp:
-    def __init__(self, numero, nome=None):
-        self.nome = nome
-        self.numero = numero
+    def __init__(self):
+        self.__nome = None
+        self.__numero = None
         self.__login = False
         self.__verify_number = False
         self.__webdriver_path = '.\\src\\services\\chromedriver.exe'
@@ -23,6 +23,21 @@ class WhatsApp:
         # options.add_argument('--headless')
         self.__driver = webdriver.Chrome(self.__webdriver_path, options=options)
 
+    @property
+    def numero(self):
+        return self.__numero
+
+    @property
+    def nome(self):
+        return self.__nome
+
+    @nome.setter
+    def nome(self, nome):
+        self.__nome = nome
+
+    @numero.setter
+    def numero(self, numero: str):
+        self.__numero = numero
 
     def login(self) -> bool:
         if not self.__login:
@@ -33,7 +48,7 @@ class WhatsApp:
             while len(self.__driver.find_elements_by_class_name('_3OvU8')) < 1:
                 # limita a execução do programa até que o qr code esteja disponível
                 if count > 20: # TODO - criar um temporizador melhor
-                    add_log('whatsapp', 'login', 'erro', f'Tempo de espera de login excedido ==> {self.nome}')
+                    add_log('whatsapp', 'login', 'erro', f'Tempo de espera de login excedido')
                     self.__login = False
                     return self.__login
 
@@ -74,7 +89,7 @@ class WhatsApp:
             # img_user.write(request.urlopen(url_img).read())
             # img_user.close()
 
-            add_log('whatsapp.py', 'login', 'login', f'Login efetuado com sucesso :{username}: ==> {self.nome}')
+            add_log('whatsapp.py', 'login', 'login', f'Login efetuado com sucesso :{username}')
             self.__login = True
 
         return self.__login
@@ -89,10 +104,10 @@ class WhatsApp:
             self.__driver.find_element_by_xpath('//*[@id="side"]/header/div[2]/div/span/div[3]/div').click()
             self.__driver.find_element_by_xpath('//*[@id="side"]/header/div[2]/div/span/div[3]/span/div[1]/ul/li[6]/div[1]').click()
             self.__login = False
-            add_log('whatsapp.py', 'logout', 'logout', f'Logout efetuado com sucesso :{self.nome}')
+            add_log('whatsapp.py', 'logout', 'logout', f'Logout efetuado com sucesso')
         
         except Exception as e:
-            add_log('whatsapp.py', 'logout', 'erro', f'Não foi possível deslogar, Erro: {e} ==> {self.nome}')
+            add_log('whatsapp.py', 'logout', 'erro', f'Não foi possível deslogar, Erro: {e}')
             return False
 
         # remove o qr code e a imagem do usuário da pasta tmp
@@ -103,11 +118,11 @@ class WhatsApp:
 
     def send_message(self, message) -> bool:
         if not self.login():
-            add_log('whatsapp.py', 'send_message', 'erro', f'Não foi possível enviar a mensagem, erro no login ==> {self.nome}')
+            add_log('whatsapp.py', 'send_message', 'erro', f'Não foi possível enviar a mensagem, erro no login')
             return False
 
         if not self.verify_number():
-            add_log('whatsapp.py', 'send_message', 'erro', f'Não foi possível enviar a mensagem, erro ao verificar o número ==> {self.nome}')
+            add_log('whatsapp.py', 'send_message', 'erro', f'Não foi possível enviar a mensagem, erro ao verificar o número')
             return False
 
         # converte a mensagem para formato de url
@@ -163,16 +178,6 @@ class WhatsApp:
     
         self.__verify_number = True
         return self.__verify_number
-
-
-    @property
-    def numero(self):
-        return self.__numero
-
-
-    @numero.setter
-    def numero(self, numero: str):
-        self.__numero = numero
 
 
     # def __del__(self):

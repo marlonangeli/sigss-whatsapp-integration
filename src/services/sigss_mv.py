@@ -167,8 +167,8 @@ class Sigss(Sistema):
     def get_values(self):
         def find_fields(self, field: dict):
             if field == self.FIELDS['bairro']:
-                self._driver.find_element(By.ID, '').click()
-                self._wdw.until(EC.element_to_be_selected((By.ID, '')))
+                self._driver.find_element(By.ID, 'ui-id-4').click()
+                self._wdw.until(EC.element_to_be_selected((By.ID, 'aba-endereco')))
 
             return self._driver.find_element(By.ID, field).get_attribute('value')
 
@@ -231,15 +231,12 @@ class MV(Sistema):
         return True
 
     def __split_keys(self, key):
+        if key is None:
+            return ''
         return key.split(' - ')
 
     def __download_request(self, type='xls', beneficio=None):
-        # URL_XLS = 'http://c3100prd.cloudmv.com.br/tmp/analiticoBeneficioUnidadeDetT_RESO_3326-1.xls'
-        # URL_PDF = 'http://c3100prd.cloudmv.com.br/tmp/analiticoBeneficioUnidadeDet_RESO_3326-1.pdf'
-        # url = URL_XLS if type == 'xls' else URL_PDF
-
         self._driver.find_element(By.NAME, f'btnPrint{type.upper()}').click()
-        # self._driver.find_element(By.NAME, f'btnPrintPDF').click()
         sleep(3)
 
         file_name = (
@@ -251,21 +248,16 @@ class MV(Sistema):
 
         main_window = self._driver.current_window_handle
         self._driver.switch_to.window(self._driver.window_handles[1])
+        self._driver.close()
+        if os.path.exists(path + f'/src/downloads/{file_name}'):
+            os.remove(path + f'/src/downloads/{file_name}')
         if type == 'pdf':
-            # url = self._driver.current_url
-            self._driver.close()
             os.rename(
                 path + '/src/downloads/analiticoBeneficioUnidadeDet_RESO_3326-1.pdf',
                 path + f'/src/downloads/{file_name}'
             )
-            # request.urlopen(url)
-            # request.urlretrieve(url, fr'./src/downloads/{file_name}')
         
         elif type == 'xls':
-            self._driver.close()
-            # self._driver.switch_to.window(self._driver.window_handles[0])
-            # os.remove(path + f'/src/downloads/{file_name}')
-            # os.remove(path + f'/src/downloads/analiticoBeneficioUnidadeDetT_RESO_3326-1.xls')
             os.rename(
                 path + '/src/downloads/analiticoBeneficioUnidadeDetT_RESO_3326-1.xls',
                 path + f'/src/downloads/{file_name}'
@@ -311,10 +303,10 @@ if __name__ == "__main__":
     # sigss.get_values()
 
     args = {
-        'data_inicial': '01/01/2021',
+        'data_inicial': '01/05/2021',
         'data_final': None,
-        'beneficio': 'ANDADOR',
-        # 'beneficio': None,
+        # 'beneficio': 'ANDADOR',
+        'beneficio': None,
         'fornecedor': None
     }
     mv = MV()
