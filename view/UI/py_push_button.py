@@ -64,7 +64,7 @@ class PyPushButton(QPushButton):
     # Define o estilo do botão
     def set_style(
         self,
-        text_padding = 64,
+        text_padding = 72,
         text_color = "white",
         btn_color = "#0043A7",
         btn_hover = "#010A38",
@@ -109,6 +109,7 @@ class PyPushButton(QPushButton):
         qp = QPainter()
         qp.begin(self)
         qp.setRenderHint(QPainter.Antialiasing)
+        qp.setRenderHint(QPainter.TextAntialiasing)
         qp.setPen(Qt.NoPen)
 
         # rect = QRect(0,0, self.minimum_width, self.height())
@@ -133,9 +134,10 @@ class PyPushButton(QPushButton):
         painter.setCompositionMode(QPainter.CompositionMode_SourceIn)
         painter.fillRect(icon.rect(), color)
         # Centraliza o ícone no botão
-        qp.drawPixmap(
-            (rect.width() - icon.width()) / 2,
-            (rect.height() - icon.height()) / 2,
-            icon
-        )
+        # qp.drawPixmap(
+        #     (rect.width() - icon.width()) / 2,
+        #     (rect.height() - icon.height()) / 2,
+        #     icon
+        # )
+        qp.drawPixmap(QRect(0, 0, icon.width(), icon.height()), icon)
         painter.end()

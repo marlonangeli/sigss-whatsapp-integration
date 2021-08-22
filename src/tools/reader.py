@@ -52,6 +52,7 @@ class Reader:
                 else:
                     df_table_formatted.loc[index, "Observação"] = ''.join(df_table.iloc[i, 0])
 
+        df_table_formatted.reset_index(drop=True, inplace=True)
         return df_table_formatted
 
 
@@ -66,8 +67,5 @@ class Reader:
 
 if __name__ == '__main__':
     reader = Reader()
-    pdf_table = reader.read_pdf('MV_master.pdf')
-    for i in range(len(pdf_table)):
-        print(f'{pdf_table.iloc[i, 0]} - {pdf_table.iloc[i, 1]} - {pdf_table.iloc[i, 2]} -  - {pdf_table.iloc[i, 4]} - {pdf_table.iloc[i, 5]}')
-    print('\n\n' + '-'*80 + '\n\n')
-    # print(reader.read_excel('MV_master.xls'))
+    print(reader.read_excel('MV_relatorio.xls'))
+    print('\n\n\n\n', reader.read_pdf('MV_relatorio.pdf'))

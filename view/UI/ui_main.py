@@ -54,23 +54,23 @@ class UI_Main(object):
         # Adiciona os botões laterais ao menu
         self.button_toggle_menu = PyPushButton(
             text = 'MENU',
-            icon_path = 'menu.png'
+            icon_path = 'menu_64.png'
         )
 
         self.button_home = PyPushButton(
             text = 'PÁGINA INICIAL',
-            icon_path = 'home.png',
+            icon_path = 'home_64.png',
             is_active =True
         )
 
         self.button_settings = PyPushButton(
             text = 'CONFIGURAÇÕES',
-            icon_path = 'settings.png'
+            icon_path = 'settings_64.png'
         )
 
         self.button_info = PyPushButton(
             text = 'INFORMAÇÕES',
-            icon_path = 'info.png'
+            icon_path = 'info_64.png'
         )
 
         # Adiciona os botões na parte superior do menu do menu
@@ -94,7 +94,7 @@ class UI_Main(object):
         # Botão para sair do sistema
         self.button_logoff = PyPushButton(
             text = 'SAIR',
-            icon_path = 'logoff.png',
+            icon_path = 'logoff_64.png',
             icon_color= '#A50000',
             btn_color = '#C4C4C4',
             btn_hover = '#656568',
@@ -115,7 +115,8 @@ class UI_Main(object):
         self.content_frame = QFrame()
                                                             # Original: :/images/background.png
                                                             # Switched to: ./view/UI/images/background.png
-        self.content_frame.setStyleSheet("background-image: url(./view/UI/images/background.png);")
+        # self.content_frame.setStyleSheet("background-image: url(./view/UI/images/background.png);")
+        self.content_frame.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.494, y1:0, x2:0.511364, y2:1, stop:0 rgba(0, 0, 84, 255), stop:1 rgba(0, 35, 60, 255));")
         self.content_frame_layout = QHBoxLayout(self.content_frame)
         self.content_frame_layout.setContentsMargins(0, 0, 0, 0)
         self.content_frame_layout.setSpacing(0)

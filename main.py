@@ -66,6 +66,10 @@ class MainWindow(QMainWindow):
         self.animation.setEasingCurve(QEasingCurve.InOutCirc)
         self.animation.start()
     
+    def start(self):
+        # TODO - iniciar aplicação
+        pass
+
     def progress_bar(self, new_value):
         self.animation = QPropertyAnimation(self.ui.ui_pages.progressBar, b"value")
         self.animation.setStartValue(self.ui.ui_pages.progressBar.value())
@@ -110,6 +114,12 @@ class MainWindow(QMainWindow):
     def close_app(self):
         # TODO - salvar operações em execução
         self.close()
+
+    def verify_config(self):
+        # TODO - verificar configurações
+        pass
+
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
