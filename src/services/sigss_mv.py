@@ -113,11 +113,11 @@ class Sistema:
             )
             return False
 
-    # TODO Criar destrutor da classe
-    # def __del__(self):
-    #     self._logout()
-    #     self._driver.quit()
-    #    # self._driver.close()
+    def close(self):
+        # if self.__login:
+        #     self._logout()
+        self._driver.close()
+        self._driver.quit()
 
 
 class Sigss(Sistema):
@@ -334,11 +334,6 @@ class MV(Sistema):
         self._driver.find_element(By.ID, 'btnSelecionar').click()
         self._driver.switch_to.default_content
         sleep(0.75)
-
-    # TODO Criar um destrutor da classe
-    # def __del__(self):
-    #     super().__del__()
-        
 
 
 if __name__ == "__main__":

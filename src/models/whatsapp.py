@@ -98,7 +98,7 @@ class WhatsApp:
                     count += 1
 
             if len(self.__driver.find_elements_by_class_name('_3OvU8')) > 0:
-                add_log('whatsapp.py', 'login', 'login', f'Login efetuado com sucesso :{username}')
+                #! add_log('whatsapp.py', 'login', 'login', f'Login efetuado com sucesso :{username}')
                 self.__login = True
 
                 # navega no perfil para coletar os dados do usuário do whatsapp
@@ -119,7 +119,6 @@ class WhatsApp:
                 # img_user = open('src\\tmp\\img_user.png', 'wb')
                 # img_user.write(request.urlopen(url_img).read())
                 # img_user.close()
-
 
         return self.__login
 
@@ -145,7 +144,7 @@ class WhatsApp:
         return True
 
 
-    def send_message(self, message) -> bool:
+    def send_message(self, message: str) -> bool:
         if not self.login():
             add_log('whatsapp.py', 'send_message', 'erro', f'Não foi possível enviar a mensagem, erro no login')
             return False

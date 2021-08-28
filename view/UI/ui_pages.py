@@ -100,8 +100,10 @@ class UI_Pages(object):
         sizePolicy.setHeightForWidth(self.frame_info_user.sizePolicy().hasHeightForWidth())
         self.frame_info_user.setSizePolicy(sizePolicy)
         self.frame_info_user.setMaximumSize(QSize(256, 256))
+        self.frame_info_user.setMinimumSize(QSize(256, 256))
         self.frame_info_user.setFrameShape(QFrame.StyledPanel)
         self.frame_info_user.setFrameShadow(QFrame.Raised)
+        self.frame_info_user.setStyleSheet('background: #00008f; border-radius: 12px;')
         self.verticalLayout_5 = QVBoxLayout(self.frame_info_user)
         self.verticalLayout_5.setSpacing(2)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -232,6 +234,10 @@ class UI_Pages(object):
 "\n"
 "QPushButton:pressed {\n"
 "background: #93e2e3\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"background: #656568;\n"
 "}")
         self.frame_tools.setFrameShape(QFrame.StyledPanel)
         self.frame_tools.setFrameShadow(QFrame.Raised)
@@ -273,6 +279,7 @@ class UI_Pages(object):
         self.frame_log.setObjectName(u"frame_log")
         self.frame_log.setMaximumSize(QSize(940, 64))
         self.frame_log.setFrameShape(QFrame.StyledPanel)
+        self.frame_log.setFrameShadow(QFrame.Raised)
         self.frame_log.setFrameShadow(QFrame.Raised)
         self.gridLayout_2 = QGridLayout(self.frame_log)
         self.gridLayout_2.setSpacing(0)
@@ -579,6 +586,8 @@ class UI_Pages(object):
         self.initial_date.setStyleSheet(u"background: white;\n"
 "color: black;")
         self.initial_date.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.initial_date.setMinimumDate(QDate(2021, 1, 1))
+        self.initial_date.setMaximumDate(QDate.currentDate())
         self.splitter_initial.addWidget(self.initial_date)
         self.splitter_interval_dates.addWidget(self.splitter_initial)
         self.splitter_5 = QSplitter(self.splitter_interval_dates)
@@ -594,6 +603,8 @@ class UI_Pages(object):
         self.final_date.setStyleSheet(u"background: white;\n"
 "color: black;")
         self.final_date.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.final_date.setMinimumDate(QDate(2021, 1, 1))
+        self.final_date.setMaximumDate(QDate.currentDate())
         self.splitter_5.addWidget(self.final_date)
         self.splitter_interval_dates.addWidget(self.splitter_5)
 
