@@ -9,6 +9,7 @@ sys.path.append(path + '\\src')
 from services.selenium_core import *
 from time import sleep
 from urllib import parse, request
+from thread import KillableThread
 
 from tools.logs import add_log
 
@@ -22,6 +23,13 @@ class WhatsApp:
         options = Options()
         # options.add_argument('--headless')
         self.__driver = webdriver.Chrome(self.__webdriver_path, options=options)
+        self.__wdw = WebDriverWait(self.__driver, 30)
+
+        self.__cancel = False
+
+    @property
+    def is_logged(self):
+        return self.__login
 
     @property
     def numero(self):
@@ -31,6 +39,10 @@ class WhatsApp:
     def nome(self):
         return self.__nome
 
+    @property
+    def cancel(self):
+        return self.__cancel
+
     @nome.setter
     def nome(self, nome):
         self.__nome = nome
@@ -39,14 +51,28 @@ class WhatsApp:
     def numero(self, numero: str):
         self.__numero = numero
 
+    @cancel.setter
+    def cancel(self, val: bool):
+        self.__cancel = val
+
+
     def login(self) -> bool:
         if not self.__login:
             self.__driver.get('https://web.whatsapp.com/')
             
+            if os.path.exists('src\\tmp\\qr_code.png'):
+                os.remove('src\\tmp\\qr_code.png')
             # faz a verificação de leitura do qr code
             count = 0
             while len(self.__driver.find_elements_by_class_name('_3OvU8')) < 1:
                 # limita a execução do programa até que o qr code esteja disponível
+                if self.__cancel:
+                    print('CANCELANDO A OPERACAO DENTRO DA CLASSE WHATSAPP')
+                    self.__login = False
+                    self.__cancel_login()
+                    # !Não deve retornar, mas é melhor prevenir pela utilização de threads
+                    return self.__login
+
                 if count > 20: # TODO - criar um temporizador melhor
                     add_log('whatsapp', 'login', 'erro', f'Tempo de espera de login excedido')
                     self.__login = False
@@ -58,6 +84,8 @@ class WhatsApp:
                     qr_code.screenshot('src\\tmp\\qrcode.png')
                     add_log('whatsapp.py', 'login', 'info', f'Capturando qr code ==> {qr_code}')
 
+                except:
+                    print('ocorreu um erro ao obter o qr code')
                 # caso ocorra algum erro, adiciona ao log e retorna False
                 # except Exception as e:
                 #     add_log('whatsapp.py', 'login', 'erro', f'Não foi possível achar o QRCode, erro: {e} ==> {self.nome}')
@@ -69,28 +97,29 @@ class WhatsApp:
                     sleep(5)
                     count += 1
 
-            # navega no perfil para coletar os dados do usuário do whatsapp
-            sleep(5)
-            self.__driver.find_element_by_xpath('//*[@id="side"]/header/div[1]/div/img').click()
-            sleep(3)
-            username = self.__driver.find_element_by_xpath(
-                '//*[@id="app"]/div[1]/div[1]/div[2]/div[1]/span/div[1]/div/div/div[2]/div[2]/div[1]/div/div[2]'
-                ).text
-            url_img = self.__driver.find_element_by_xpath(
-                '//*[@id="app"]/div[1]/div[1]/div[2]/div[1]/span/div[1]/div/div/div[1]/div/div/div/div/div/img'
-                ).get_attribute('src')
+            if len(self.__driver.find_elements_by_class_name('_3OvU8')) > 0:
+                add_log('whatsapp.py', 'login', 'login', f'Login efetuado com sucesso :{username}')
+                self.__login = True
 
-            # adiciona a foto de perfil a pasta tmp
-            # !Gambiarra
-            self.__driver.get(url_img)
-            img_user = self.__driver.find_element_by_xpath('/html/body/img')
-            img_user.screenshot('src\\tmp\\img_user.png')
-            # img_user = open('src\\tmp\\img_user.png', 'wb')
-            # img_user.write(request.urlopen(url_img).read())
-            # img_user.close()
+                # navega no perfil para coletar os dados do usuário do whatsapp
+                sleep(5)
+                self.__driver.find_element_by_xpath('//*[@id="side"]/header/div[1]/div/img').click()
+                sleep(3)
+                username = self.__driver.find_element_by_xpath(
+                    '//*[@id="app"]/div[1]/div[1]/div[2]/div[1]/span/div[1]/div/div/div[2]/div[2]/div[1]/div/div[2]'
+                    ).text
+                url_img = self.__driver.find_element_by_xpath(
+                    '//*[@id="app"]/div[1]/div[1]/div[2]/div[1]/span/div[1]/div/div/div[1]/div/div/div/div/div/img'
+                    ).get_attribute('src')
 
-            add_log('whatsapp.py', 'login', 'login', f'Login efetuado com sucesso :{username}')
-            self.__login = True
+                # adiciona a foto de perfil a pasta tmp
+                self.__driver.get(url_img)
+                img_user = self.__driver.find_element_by_xpath('/html/body/img')
+                img_user.screenshot('src\\tmp\\img_user.png')
+                # img_user = open('src\\tmp\\img_user.png', 'wb')
+                # img_user.write(request.urlopen(url_img).read())
+                # img_user.close()
+
 
         return self.__login
 
@@ -149,11 +178,12 @@ class WhatsApp:
             sleep(5)
             
             while len(self.__driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[1]/div/div[2]')) < 1:
-    
                 try:
                     self.__driver.find_element_by_xpath('//*[@id="app"]/div[1]/span[2]/div[1]/span/div[1]/div/div/div/div/div[2]/div').click()
                     self.__verify_number = False
                     return self.__verify_number
+                except:
+                    pass
                 finally:
                     sleep(3)
                     
@@ -180,13 +210,20 @@ class WhatsApp:
         return self.__verify_number
 
 
-    # def __del__(self):
-    #     self.logout()
-    #     self.__driver.quit()
+    def __cancel_login(self):
+        self.delete()
+
+
+    def delete(self):
+        if self.__login:
+            self.logout()
+        if os.path.exists('src\\tmp\\qrcode.png'):
+            os.remove('src\\tmp\\qrcode.png')
+        if os.path.exists('src\\tmp\\img_user.png'):
+            os.remove('src\\tmp\\img_user.png')
+        self.__driver.quit()
 
 
 if __name__ == '__main__':
-    whatsapp = WhatsApp('45984214127', 'Teste1')
-    # whatsapp.login()
-    whatsapp.send_message('Teste1')
-    whatsapp.logout()
+    wpp = WhatsApp()
+    wpp.login()

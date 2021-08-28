@@ -12,8 +12,9 @@ from PySide6.QtWidgets import *
 from view.UI.py_push_button import PyPushButton
 from view.UI.ui_pages import UI_Pages
 
+
 class UI_Main(object):
-    def setup_ui(self, parent):
+    def setupUi(self, parent):
         if not parent.objectName():
             parent.setObjectName('MainWindow')
 

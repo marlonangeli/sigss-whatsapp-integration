@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1065</width>
+    <width>960</width>
     <height>680</height>
    </rect>
   </property>
@@ -27,6 +27,9 @@
   <property name="styleSheet">
    <string notr="true">font-family: Montserrat; font-size: 16px; color: white;
 </string>
+  </property>
+  <property name="currentIndex">
+   <number>4</number>
   </property>
   <widget class="QWidget" name="home_page">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -159,7 +162,7 @@ QPushButton:pressed {
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="images/images.qrc">
+          <iconset>
            <normaloff>:/images/icons/close.png</normaloff>:/images/icons/close.png</iconset>
          </property>
         </widget>
@@ -295,7 +298,7 @@ QPushButton:pressed {
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-	background: #656568;
+	background-color: #005012;
 	border-radius: 8px;
 	color: white;
 	padding: 12px;
@@ -303,15 +306,18 @@ QPushButton:pressed {
 }
 
 #btn_start {
+	background-color: #00aa00;
 	font-weight: bold;
-	background-color: #005012;
+}
+QPushButton:disabled {
+	background: #656568;
 }
 
-#btn_start:hover {
+QPushButton:hover {
 	background: #019421;
 }
 
-#btn_start:pressed {
+QPushButton:pressed {
 	background: #54cb62;
 }</string>
          </property>
@@ -885,7 +891,25 @@ QPushButton:pressed {
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background: #656568;</string>
+              <string notr="true">QPushButton {
+	background-color: #005012;
+	border-radius: 8px;
+	color: white;
+	padding: 12px;
+	width: 256px
+}
+
+QPushButton:disabled {
+	background: #656568;
+}
+
+QPushButton:hover {
+	background: #019421;
+}
+
+QPushButton:pressed {
+	background: #54cb62;
+}</string>
              </property>
              <property name="text">
               <string>TENTAR NOVAMENTE</string>
@@ -918,7 +942,490 @@ QPushButton:pressed {
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="settings_page"/>
+  <widget class="QWidget" name="settings_page">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+color: white !important;
+}
+
+QLineEdit {
+background: white;
+color: black;
+padding: 8px;
+border-radius: 4px;
+}
+
+QDateEdit {
+background: white;
+color: black;
+padding: 8px;
+border-radius: 4px;
+}</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_15">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+     <widget class="QFrame" name="frame_credentials">
+      <property name="minimumSize">
+       <size>
+        <width>512</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>512</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: #00008F; border-radius: 12px;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_9">
+       <property name="spacing">
+        <number>35</number>
+       </property>
+       <item>
+        <widget class="QSplitter" name="splitter_username">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="childrenCollapsible">
+          <bool>false</bool>
+         </property>
+         <widget class="QLabel" name="label_username">
+          <property name="text">
+           <string>Usuário</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="input_username">
+          <property name="minimumSize">
+           <size>
+            <width>340</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>340</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: white;
+color: black;</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSplitter" name="splitter_password">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="childrenCollapsible">
+          <bool>false</bool>
+         </property>
+         <widget class="QLabel" name="label_password">
+          <property name="text">
+           <string>Senha</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="input_password">
+          <property name="minimumSize">
+           <size>
+            <width>340</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>340</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: white;
+color: black;</string>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+          <property name="clearButtonEnabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+     <widget class="QFrame" name="frame_filters">
+      <property name="minimumSize">
+       <size>
+        <width>720</width>
+        <height>256</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>720</width>
+        <height>256</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: #00008F; border-radius: 12px;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_14">
+       <property name="spacing">
+        <number>32</number>
+       </property>
+       <property name="leftMargin">
+        <number>9</number>
+       </property>
+       <property name="topMargin">
+        <number>9</number>
+       </property>
+       <property name="rightMargin">
+        <number>9</number>
+       </property>
+       <property name="bottomMargin">
+        <number>16</number>
+       </property>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QSplitter" name="splitter_interval_dates">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>64</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>664</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="lineWidth">
+          <number>1</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="handleWidth">
+          <number>64</number>
+         </property>
+         <widget class="QSplitter" name="splitter_initial">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QLabel" name="label_initial_date">
+           <property name="text">
+            <string>Data Inicial:</string>
+           </property>
+          </widget>
+          <widget class="QDateEdit" name="initial_date">
+           <property name="minimumSize">
+            <size>
+             <width>300</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: white;
+color: black;</string>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QSplitter" name="splitter_5">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QLabel" name="label_final_date">
+           <property name="text">
+            <string>Data Final:</string>
+           </property>
+          </widget>
+          <widget class="QDateEdit" name="final_date">
+           <property name="minimumSize">
+            <size>
+             <width>300</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: white;
+color: black;</string>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QSplitter" name="splitter_7">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="childrenCollapsible">
+          <bool>false</bool>
+         </property>
+         <widget class="QLabel" name="label_material">
+          <property name="minimumSize">
+           <size>
+            <width>96</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>96</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Material</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="input_material">
+          <property name="minimumSize">
+           <size>
+            <width>512</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>512</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: white;
+color: black;</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QSplitter" name="splitter_8">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="childrenCollapsible">
+          <bool>false</bool>
+         </property>
+         <widget class="QLabel" name="label_fornecedor">
+          <property name="minimumSize">
+           <size>
+            <width>96</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>96</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Fornecedor</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="input_fornecedor">
+          <property name="minimumSize">
+           <size>
+            <width>512</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>512</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: white;
+color: black;</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignHCenter">
+     <widget class="QFrame" name="frame_settings_buttons">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_8">
+       <property name="spacing">
+        <number>64</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="btn_confirm_settings">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>140</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>140</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	color: white;
+	padding: 12px;
+	border-radius: 12px;
+	background: #005012;
+	font-weight: bold;
+}
+QPushButton:hover {
+	background: #019421
+}
+
+QPushButton:pressed {
+	background: #54cb62;
+}</string>
+         </property>
+         <property name="text">
+          <string>SALVAR</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_cancel_settings">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>140</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>140</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	color: white;
+	padding: 12px;
+	border-radius: 12px;
+	background: #A50000;
+	font-weight: bold;
+}
+QPushButton:hover {
+	background: #DB1F1F
+}
+
+QPushButton:pressed {
+	background: #fe5243;
+}
+
+QPushButton:disabled {
+	background: #656568;
+}</string>
+         </property>
+         <property name="text">
+          <string>CANCELAR</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QWidget" name="info_page">
    <layout class="QVBoxLayout" name="verticalLayout_6">
     <item alignment="Qt::AlignHCenter">
@@ -956,18 +1463,43 @@ QPushButton:pressed {
        </property>
        <item>
         <widget class="QLabel" name="label_name_icon">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>18</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>18</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true"/>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Informações do Sistema&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;[image]&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;SWI&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Informações do Sistema&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_logo">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="images/images.qrc">:/images/icons/swi_logo.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
        <item alignment="Qt::AlignVCenter">
         <widget class="QLabel" name="label_version_info">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Versão: 1.0&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Data da versão: 01/08/2021&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700; text-decoration: underline;&quot;&gt;SWI&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Versão: 1.0&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Data da versão: 01/08/2021&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>

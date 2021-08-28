@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_pagesUUHfqB.ui'
+## Form generated from reading UI file 'ui_pagesAbfqaM.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.2
 ##
@@ -12,18 +12,17 @@ from PySide6.QtCore import *  # type: ignore
 from PySide6.QtGui import *  # type: ignore
 from PySide6.QtWidgets import *  # type: ignore
 
-# import images_rc
 
 class UI_Pages(object):
     def setupUi(self, pages):
         if not pages.objectName():
             pages.setObjectName(u"pages")
-        # pages.resize(1065, 680)
-        # pages.setMinimumSize(QSize(960, 680))
+        pages.resize(960, 680)
+        pages.setMinimumSize(QSize(960, 680))
         font = QFont()
-        font.setFamilies([u"Montserrat"])
         pages.setFont(font)
-        pages.setStyleSheet(u"font-family: Montserrat; font-size: 16px; color: white;")
+        pages.setStyleSheet(u"font-family: Montserrat; font-size: 16px; color: white;\n"
+"")
         self.home_page = QWidget()
         self.home_page.setObjectName(u"home_page")
         self.verticalLayout = QVBoxLayout(self.home_page)
@@ -75,9 +74,7 @@ class UI_Pages(object):
 "	background: white;\n"
 "}")
         icon = QIcon()
-        # close icon path: './view/UI/images/icons/close.png'
-        # original path: :/images/icons/close.png
-        icon.addFile(u"./view/UI/images/icons/close.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"./view/UI/images/icons/close_64.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_close_notification.setIcon(icon)
 
         self.gridLayout.addWidget(self.btn_close_notification, 0, 1, 1, 1, Qt.AlignHCenter|Qt.AlignTop)
@@ -87,8 +84,7 @@ class UI_Pages(object):
 
         self.frame_content_home = QFrame(self.home_page)
         self.frame_content_home.setObjectName(u"frame_content_home")
-        font1 = QFont()
-        self.frame_content_home.setFont(font1)
+        self.frame_content_home.setFont(font)
         self.frame_content_home.setStyleSheet(u"border-radius: 12px;")
         self.frame_content_home.setFrameShape(QFrame.StyledPanel)
         self.frame_content_home.setFrameShadow(QFrame.Raised)
@@ -146,7 +142,7 @@ class UI_Pages(object):
         self.frame_main_buttons.setObjectName(u"frame_main_buttons")
         self.frame_main_buttons.setMaximumSize(QSize(340, 16777215))
         self.frame_main_buttons.setStyleSheet(u"QPushButton {\n"
-"	background: #656568;\n"
+"	background-color: #005012;\n"
 "	border-radius: 8px;\n"
 "	color: white;\n"
 "	padding: 12px;\n"
@@ -154,15 +150,30 @@ class UI_Pages(object):
 "}\n"
 "\n"
 "#btn_start {\n"
+"	background-color: #339047;\n"
 "	font-weight: bold;\n"
-"	background-color: #005012;\n"
 "}\n"
 "\n"
 "#btn_start:hover {\n"
-"	background: #019421;\n"
+"	background-color: #005500;\n"
 "}\n"
 "\n"
 "#btn_start:pressed {\n"
+"	background-color: #005012;\n"
+"}\n"
+"#btn_start:disabled {\n"
+"	background-color: #656568;\n"
+"}\n"
+
+"QPushButton:disabled {\n"
+"	background: #656568;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background: #019421;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
 "	background: #54cb62;\n"
 "}")
         self.frame_main_buttons.setFrameShape(QFrame.StyledPanel)
@@ -300,7 +311,7 @@ class UI_Pages(object):
 "        background: lime; \n"
 "        border-radius:6px;\n"
 "} ")
-        self.progressBar.setValue(0)
+        self.progressBar.setValue(24)
         self.progressBar.setAlignment(Qt.AlignCenter)
         self.progressBar.setTextVisible(False)
         self.progressBar.setOrientation(Qt.Horizontal)
@@ -425,7 +436,25 @@ class UI_Pages(object):
         self.btn_again.setObjectName(u"btn_again")
         self.btn_again.setMinimumSize(QSize(256, 44))
         self.btn_again.setMaximumSize(QSize(256, 44))
-        self.btn_again.setStyleSheet(u"background: #656568;")
+        self.btn_again.setStyleSheet(u"QPushButton {\n"
+"	background-color: #005012;\n"
+"	border-radius: 8px;\n"
+"	color: white;\n"
+"	padding: 12px;\n"
+"	width: 256px\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"	background: #656568;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background: #019421;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"	background: #54cb62;\n"
+"}")
         self.splitter.addWidget(self.btn_again)
         self.btn_cancel = QPushButton(self.splitter)
         self.btn_cancel.setObjectName(u"btn_cancel")
@@ -444,6 +473,240 @@ class UI_Pages(object):
         pages.addWidget(self.qr_code)
         self.settings_page = QWidget()
         self.settings_page.setObjectName(u"settings_page")
+        sizePolicy.setHeightForWidth(self.settings_page.sizePolicy().hasHeightForWidth())
+        self.settings_page.setSizePolicy(sizePolicy)
+        self.settings_page.setMinimumSize(QSize(0, 0))
+        self.settings_page.setMaximumSize(QSize(16777215, 16777215))
+        self.settings_page.setStyleSheet(u"QLabel {\n"
+"color: white !important;\n"
+"}\n"
+"\n"
+"QLineEdit {\n"
+"background: white;\n"
+"color: black;\n"
+"padding: 8px;\n"
+"border-radius: 4px;\n"
+"}\n"
+"\n"
+"QDateEdit {\n"
+"background: white;\n"
+"color: black;\n"
+"padding: 8px;\n"
+"border-radius: 4px;\n"
+"}")
+        self.verticalLayout_15 = QVBoxLayout(self.settings_page)
+        self.verticalLayout_15.setSpacing(0)
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.frame_credentials = QFrame(self.settings_page)
+        self.frame_credentials.setObjectName(u"frame_credentials")
+        self.frame_credentials.setMinimumSize(QSize(512, 0))
+        self.frame_credentials.setMaximumSize(QSize(512, 16777215))
+        self.frame_credentials.setStyleSheet(u"background: #00008F; border-radius: 12px;")
+        self.frame_credentials.setFrameShape(QFrame.StyledPanel)
+        self.frame_credentials.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_9 = QVBoxLayout(self.frame_credentials)
+        self.verticalLayout_9.setSpacing(35)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.splitter_username = QSplitter(self.frame_credentials)
+        self.splitter_username.setObjectName(u"splitter_username")
+        self.splitter_username.setOrientation(Qt.Horizontal)
+        self.splitter_username.setChildrenCollapsible(False)
+        self.label_username = QLabel(self.splitter_username)
+        self.label_username.setObjectName(u"label_username")
+        self.splitter_username.addWidget(self.label_username)
+        self.input_username = QLineEdit(self.splitter_username)
+        self.input_username.setObjectName(u"input_username")
+        self.input_username.setMinimumSize(QSize(340, 0))
+        self.input_username.setMaximumSize(QSize(340, 16777215))
+        self.input_username.setStyleSheet(u"background: white;\n"
+"color: black;")
+        self.splitter_username.addWidget(self.input_username)
+
+        self.verticalLayout_9.addWidget(self.splitter_username)
+
+        self.splitter_password = QSplitter(self.frame_credentials)
+        self.splitter_password.setObjectName(u"splitter_password")
+        self.splitter_password.setOrientation(Qt.Horizontal)
+        self.splitter_password.setChildrenCollapsible(False)
+        self.label_password = QLabel(self.splitter_password)
+        self.label_password.setObjectName(u"label_password")
+        self.splitter_password.addWidget(self.label_password)
+        self.input_password = QLineEdit(self.splitter_password)
+        self.input_password.setObjectName(u"input_password")
+        self.input_password.setMinimumSize(QSize(340, 0))
+        self.input_password.setMaximumSize(QSize(340, 16777215))
+        self.input_password.setFocusPolicy(Qt.StrongFocus)
+        self.input_password.setStyleSheet(u"background: white;\n"
+"color: black;")
+        self.input_password.setEchoMode(QLineEdit.Password)
+        self.input_password.setClearButtonEnabled(False)
+        self.splitter_password.addWidget(self.input_password)
+
+        self.verticalLayout_9.addWidget(self.splitter_password)
+
+
+        self.verticalLayout_15.addWidget(self.frame_credentials, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.frame_filters = QFrame(self.settings_page)
+        self.frame_filters.setObjectName(u"frame_filters")
+        self.frame_filters.setMinimumSize(QSize(720, 256))
+        self.frame_filters.setMaximumSize(QSize(720, 256))
+        self.frame_filters.setStyleSheet(u"background: #00008F; border-radius: 12px;")
+        self.frame_filters.setFrameShape(QFrame.StyledPanel)
+        self.frame_filters.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_14 = QVBoxLayout(self.frame_filters)
+        self.verticalLayout_14.setSpacing(32)
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.verticalLayout_14.setContentsMargins(9, 9, 9, 16)
+        self.splitter_interval_dates = QSplitter(self.frame_filters)
+        self.splitter_interval_dates.setObjectName(u"splitter_interval_dates")
+        self.splitter_interval_dates.setMinimumSize(QSize(0, 64))
+        self.splitter_interval_dates.setMaximumSize(QSize(664, 16777215))
+        self.splitter_interval_dates.setLineWidth(1)
+        self.splitter_interval_dates.setOrientation(Qt.Horizontal)
+        self.splitter_interval_dates.setHandleWidth(64)
+        self.splitter_initial = QSplitter(self.splitter_interval_dates)
+        self.splitter_initial.setObjectName(u"splitter_initial")
+        self.splitter_initial.setOrientation(Qt.Vertical)
+        self.label_initial_date = QLabel(self.splitter_initial)
+        self.label_initial_date.setObjectName(u"label_initial_date")
+        self.splitter_initial.addWidget(self.label_initial_date)
+        self.initial_date = QDateEdit(self.splitter_initial)
+        self.initial_date.setObjectName(u"initial_date")
+        self.initial_date.setMinimumSize(QSize(300, 0))
+        self.initial_date.setMaximumSize(QSize(300, 16777215))
+        self.initial_date.setStyleSheet(u"background: white;\n"
+"color: black;")
+        self.initial_date.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.splitter_initial.addWidget(self.initial_date)
+        self.splitter_interval_dates.addWidget(self.splitter_initial)
+        self.splitter_5 = QSplitter(self.splitter_interval_dates)
+        self.splitter_5.setObjectName(u"splitter_5")
+        self.splitter_5.setOrientation(Qt.Vertical)
+        self.label_final_date = QLabel(self.splitter_5)
+        self.label_final_date.setObjectName(u"label_final_date")
+        self.splitter_5.addWidget(self.label_final_date)
+        self.final_date = QDateEdit(self.splitter_5)
+        self.final_date.setObjectName(u"final_date")
+        self.final_date.setMinimumSize(QSize(300, 0))
+        self.final_date.setMaximumSize(QSize(300, 16777215))
+        self.final_date.setStyleSheet(u"background: white;\n"
+"color: black;")
+        self.final_date.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.splitter_5.addWidget(self.final_date)
+        self.splitter_interval_dates.addWidget(self.splitter_5)
+
+        self.verticalLayout_14.addWidget(self.splitter_interval_dates, 0, Qt.AlignHCenter)
+
+        self.splitter_7 = QSplitter(self.frame_filters)
+        self.splitter_7.setObjectName(u"splitter_7")
+        self.splitter_7.setOrientation(Qt.Horizontal)
+        self.splitter_7.setChildrenCollapsible(False)
+        self.label_material = QLabel(self.splitter_7)
+        self.label_material.setObjectName(u"label_material")
+        self.label_material.setMinimumSize(QSize(96, 0))
+        self.label_material.setMaximumSize(QSize(96, 16777215))
+        self.splitter_7.addWidget(self.label_material)
+        self.input_material = QLineEdit(self.splitter_7)
+        self.input_material.setObjectName(u"input_material")
+        self.input_material.setMinimumSize(QSize(512, 0))
+        self.input_material.setMaximumSize(QSize(512, 16777215))
+        self.input_material.setStyleSheet(u"background: white;\n"
+"color: black;")
+        self.splitter_7.addWidget(self.input_material)
+
+        self.verticalLayout_14.addWidget(self.splitter_7, 0, Qt.AlignHCenter)
+
+        self.splitter_8 = QSplitter(self.frame_filters)
+        self.splitter_8.setObjectName(u"splitter_8")
+        self.splitter_8.setOrientation(Qt.Horizontal)
+        self.splitter_8.setChildrenCollapsible(False)
+        self.label_fornecedor = QLabel(self.splitter_8)
+        self.label_fornecedor.setObjectName(u"label_fornecedor")
+        self.label_fornecedor.setMinimumSize(QSize(96, 0))
+        self.label_fornecedor.setMaximumSize(QSize(96, 16777215))
+        self.splitter_8.addWidget(self.label_fornecedor)
+        self.input_fornecedor = QLineEdit(self.splitter_8)
+        self.input_fornecedor.setObjectName(u"input_fornecedor")
+        self.input_fornecedor.setMinimumSize(QSize(512, 0))
+        self.input_fornecedor.setMaximumSize(QSize(512, 16777215))
+        self.input_fornecedor.setStyleSheet(u"background: white;\n"
+"color: black;")
+        self.splitter_8.addWidget(self.input_fornecedor)
+
+        self.verticalLayout_14.addWidget(self.splitter_8, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_15.addWidget(self.frame_filters, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.frame_settings_buttons = QFrame(self.settings_page)
+        self.frame_settings_buttons.setObjectName(u"frame_settings_buttons")
+        self.frame_settings_buttons.setFrameShape(QFrame.StyledPanel)
+        self.frame_settings_buttons.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_8 = QHBoxLayout(self.frame_settings_buttons)
+        self.horizontalLayout_8.setSpacing(64)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.btn_confirm_settings = QPushButton(self.frame_settings_buttons)
+        self.btn_confirm_settings.setObjectName(u"btn_confirm_settings")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.btn_confirm_settings.sizePolicy().hasHeightForWidth())
+        self.btn_confirm_settings.setSizePolicy(sizePolicy2)
+        self.btn_confirm_settings.setMinimumSize(QSize(140, 0))
+        self.btn_confirm_settings.setMaximumSize(QSize(140, 16777215))
+        self.btn_confirm_settings.setStyleSheet(u"QPushButton {\n"
+"	color: white;\n"
+"	padding: 12px;\n"
+"	border-radius: 12px;\n"
+"	background: #005012;\n"
+"	font-weight: bold;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background: #019421\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"	background: #54cb62;\n"
+"}")
+
+        self.horizontalLayout_8.addWidget(self.btn_confirm_settings)
+
+        self.btn_cancel_settings = QPushButton(self.frame_settings_buttons)
+        self.btn_cancel_settings.setObjectName(u"btn_cancel_settings")
+        self.btn_cancel_settings.setEnabled(True)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.btn_cancel_settings.sizePolicy().hasHeightForWidth())
+        self.btn_cancel_settings.setSizePolicy(sizePolicy3)
+        self.btn_cancel_settings.setMinimumSize(QSize(140, 0))
+        self.btn_cancel_settings.setMaximumSize(QSize(140, 16777215))
+        self.btn_cancel_settings.setStyleSheet(u"QPushButton {\n"
+"	color: white;\n"
+"	padding: 12px;\n"
+"	border-radius: 12px;\n"
+"	background: #A50000;\n"
+"	font-weight: bold;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background: #DB1F1F\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"	background: #fe5243;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"	background: #656568;\n"
+"}")
+
+        self.horizontalLayout_8.addWidget(self.btn_cancel_settings)
+
+
+        self.verticalLayout_15.addWidget(self.frame_settings_buttons, 0, Qt.AlignHCenter)
+
         pages.addWidget(self.settings_page)
         self.info_page = QWidget()
         self.info_page.setObjectName(u"info_page")
@@ -462,9 +725,18 @@ class UI_Pages(object):
         self.verticalLayout_10.setContentsMargins(9, 9, -1, -1)
         self.label_name_icon = QLabel(self.frame_info)
         self.label_name_icon.setObjectName(u"label_name_icon")
+        self.label_name_icon.setMinimumSize(QSize(0, 18))
+        self.label_name_icon.setMaximumSize(QSize(16777215, 18))
         self.label_name_icon.setStyleSheet(u"")
 
         self.verticalLayout_10.addWidget(self.label_name_icon)
+
+        self.label_logo = QLabel(self.frame_info)
+        self.label_logo.setObjectName(u"label_logo")
+        self.label_logo.setPixmap(QPixmap(u"./view/UI/images/icons/swi_logo.png"))
+        self.label_logo.setScaledContents(True)
+
+        self.verticalLayout_10.addWidget(self.label_logo)
 
         self.label_version_info = QLabel(self.frame_info)
         self.label_version_info.setObjectName(u"label_version_info")
@@ -646,6 +918,9 @@ class UI_Pages(object):
 
         self.retranslateUi(pages)
 
+        pages.setCurrentIndex(4)
+
+
         QMetaObject.connectSlotsByName(pages)
     # setupUi
 
@@ -671,8 +946,17 @@ class UI_Pages(object):
         self.label_info.setText(QCoreApplication.translate("pages", u"<html><head/><body><p align=\"center\">Para efetuar o login, escaneie o QR Code acima, se a barra de tempo acabar \u00e9 poss\u00edvel tentar novamente.</p></body></html>", None))
         self.btn_again.setText(QCoreApplication.translate("pages", u"TENTAR NOVAMENTE", None))
         self.btn_cancel.setText(QCoreApplication.translate("pages", u"CANCELAR", None))
-        self.label_name_icon.setText(QCoreApplication.translate("pages", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">Informa\u00e7\u00f5es do Sistema</span></p><p align=\"center\"><span style=\" font-weight:700;\">[image]</span></p><p align=\"center\"><span style=\" font-weight:700;\">SWI</span></p></body></html>", None))
-        self.label_version_info.setText(QCoreApplication.translate("pages", u"<html><head/><body><p align=\"center\">Vers\u00e3o: 1.0</p><p align=\"center\">Data da vers\u00e3o: 01/08/2021</p></body></html>", None))
+        self.label_username.setText(QCoreApplication.translate("pages", u"Usu\u00e1rio", None))
+        self.label_password.setText(QCoreApplication.translate("pages", u"Senha", None))
+        self.label_initial_date.setText(QCoreApplication.translate("pages", u"Data Inicial:", None))
+        self.label_final_date.setText(QCoreApplication.translate("pages", u"Data Final:", None))
+        self.label_material.setText(QCoreApplication.translate("pages", u"Material", None))
+        self.label_fornecedor.setText(QCoreApplication.translate("pages", u"Fornecedor", None))
+        self.btn_confirm_settings.setText(QCoreApplication.translate("pages", u"SALVAR", None))
+        self.btn_cancel_settings.setText(QCoreApplication.translate("pages", u"CANCELAR", None))
+        self.label_name_icon.setText(QCoreApplication.translate("pages", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">Informa\u00e7\u00f5es do Sistema</span></p></body></html>", None))
+        self.label_logo.setText("")
+        self.label_version_info.setText(QCoreApplication.translate("pages", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:700; text-decoration: underline;\">SWI</span></p><p align=\"center\">Vers\u00e3o: 1.0</p><p align=\"center\">Data da vers\u00e3o: 01/08/2021</p></body></html>", None))
         self.label_author_info.setText(QCoreApplication.translate("pages", u"<html>\n"
 "<head/>\n"
 "<body>\n"

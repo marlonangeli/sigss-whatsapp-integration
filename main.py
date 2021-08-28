@@ -9,14 +9,29 @@ from PySide6.QtWidgets import *
 
 from view.UI.ui_main import UI_Main
 
+from src.models.whatsapp import WhatsApp
+from threading import Thread
+
+
+AUX_BUTTON_STYLESHEET = """
+QPushButton {
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;    
+}
+"""
+
+
 class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
         self.setWindowTitle("SWI")
+        self.setWindowIcon(QIcon("src/img/icons/icon.png"))
 
         self.ui = UI_Main()
-        self.ui.setup_ui(self)
+        self.ui.setupUi(self)
 
         # Botão de expandir o menu
         self.ui.button_toggle_menu.clicked.connect(self.toggle_menu)
@@ -25,8 +40,8 @@ class MainWindow(QMainWindow):
         # Botão da página inicial
         self.ui.button_home.clicked.connect(self.show_home_page)
 
-        # Botão de iniciar
-        self.ui.ui_pages.btn_start.clicked.connect(self.progress_bar(64))
+        # Botão iniciar
+        self.ui.ui_pages.btn_start.clicked.connect(self.start)
 
         # -----------------------------------------------------------
         # Botão da página de configurações
@@ -35,6 +50,10 @@ class MainWindow(QMainWindow):
         # -----------------------------------------------------------
         # Botão da página de informações
         self.ui.button_info.clicked.connect(self.show_info_page)
+
+        self.ui.ui_pages.btn_feedback.clicked.connect(
+            lambda: self.ui.ui_pages.btn_feedback.setEnabled(False)
+        )
 
         # -----------------------------------------------------------
         # Botão de sair
@@ -45,14 +64,30 @@ class MainWindow(QMainWindow):
         # Cancelar
         self.ui.ui_pages.btn_cancel_exit.clicked.connect(self.show_home_page) # Retorna para a página inicial
 
+        # -----------------------------------------------------------
+        # Fechar notificações
+        self.ui.ui_pages.btn_close_notification.clicked.connect(self.ui.ui_pages.frame_notifications.hide)
+
+        # -----------------------------------------------------------
+        # Cancelar QR Code
+        self.ui.ui_pages.btn_cancel.clicked.connect(self.cancel_login)
+
+        self.ui.ui_pages.btn_verify_contacts.clicked.connect(self.verify_contacts)
 
 
         # Exibe a aplicação
         self.show()
 
+
+    # Funcção que desabilita o botao
+    def disable_button(self, btn):
+        btn.setEnabled(False)
+        btn.setStyleSheet()
+
     # Função que expande o menu
     def toggle_menu(self):
         menu_width = self.ui.left_menu_frame.width()
+        self.progress_bar(15)
 
         width = 64
         if menu_width == 64:
@@ -67,8 +102,20 @@ class MainWindow(QMainWindow):
         self.animation.start()
     
     def start(self):
-        # TODO - iniciar aplicação
-        pass
+        print('a funcao esta funcionando')
+        self.ui.ui_pages.label_notifications.setText("Iniciando...")
+        self.ui.ui_pages.frame_notifications.show()
+        self.progress_bar(54)
+        # self.progress_bar(64)
+        # sleep(5)
+        # self.ui.ui_pages.label_notifications.setText("Concluído!")
+        # self.progress_bar(100)
+        # sleep(2)
+        # self.show_qr_code()
+        loop = QEventLoop()
+        QTimer.singleShot(5000, loop.quit)
+        loop.exec()
+
 
     def progress_bar(self, new_value):
         self.animation = QPropertyAnimation(self.ui.ui_pages.progressBar, b"value")
@@ -118,6 +165,68 @@ class MainWindow(QMainWindow):
     def verify_config(self):
         # TODO - verificar configurações
         pass
+
+    def show_qr_code(self):
+        self.whatsapp = WhatsApp()
+        self.th = Thread(target=self.whatsapp.login)
+        self.th.start()
+
+        self.cancel_operation = False
+
+        def timer(self, new_value):
+            self.animation = QPropertyAnimation(self.ui.ui_pages.timer, b"value")
+            self.animation.setStartValue(self.ui.ui_pages.timer.value())
+            self.animation.setEndValue(new_value)
+            self.animation.setDuration(500)
+            self.animation.setEasingCurve(QEasingCurve.InOutCirc)
+            self.animation.start()
+
+    
+        def logged(self):
+            self.ui.ui_pages.timer.setValue(0)
+            self.ui.ui_pages.label_notifications.setText("Login no WhatsApp realizado com sucesso.")
+            self.ui.ui_pages.label_notifications.show()
+            self.ui.pages.setCurrentWidget(self.ui.ui_pages.home_page)
+        
+        self.ui.pages.setCurrentWidget(self.ui.ui_pages.qr_code)
+        for i in range(101):
+            if self.whatsapp.is_logged:
+                logged(self)
+                break
+            if self.cancel_operation:
+                break
+            if os.path.exists("src/tmp/qrcode.png"):
+                self.ui.ui_pages.label_img_qr_code.setPixmap(QPixmap('src/tmp/qrcode.png'))
+            self.loop(1)
+            timer(self, i)
+
+
+    def cancel_login(self):
+        print('Indo cancelar')
+        self.cancel_operation = True
+        self.whatsapp.cancel = True
+        self.ui.ui_pages.timer.setValue(0)
+
+        self.th.join()
+        del self.th
+        self.ui.ui_pages.label_notifications.setText("Login no WhatsApp cancelado.")
+        self.ui.ui_pages.label_notifications.show()
+        self.ui.pages.setCurrentWidget(self.ui.ui_pages.home_page)
+        print('Cancelado')
+
+
+    def verify_contacts(self):
+        self.ui.ui_pages.label_notifications.setText("Carregando contatos...")
+        self.ui.ui_pages.frame_notifications.show()
+        self.progress_bar(54)
+        self.ui.ui_pages.label_notifications.setText("Concluído!")
+        self.loop(2)
+        self.show_qr_code()
+
+    def loop(self, secs):
+        loop = QEventLoop()
+        QTimer.singleShot(secs*1000, loop.quit)
+        loop.exec()
 
 
 

@@ -2,12 +2,18 @@
   <qresource prefix="images">
     <file>icons/arrow_down.png</file>
     <file>icons/arrow_right.png</file>
-    <file>icons/close.png</file>
-    <file>icons/home.png</file>
-    <file>icons/info.png</file>
-    <file>icons/logoff.png</file>
-    <file>icons/menu.png</file>
-    <file>icons/settings.png</file>
-    <file>background.png</file>
+    <file>icons/close_64.png</file>
+    <file>icons/close_full.png</file>
+    <file>icons/home_64.png</file>
+    <file>icons/home_full.png</file>
+    <file>icons/info_64.png</file>
+    <file>icons/info_full.png</file>
+    <file>icons/logoff_64.png</file>
+    <file>icons/logoff_full.png</file>
+    <file>icons/menu_64.png</file>
+    <file>icons/menu_full.png</file>
+    <file>icons/settings_64.png</file>
+    <file>icons/settings_full.png</file>
+    <file>icons/swi_logo.png</file>
   </qresource>
 </RCC>
