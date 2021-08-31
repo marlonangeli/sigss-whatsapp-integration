@@ -1,5 +1,3 @@
-#!./venv/Scripts/python.exe
-
 import sys
 import os
 
@@ -47,7 +45,6 @@ class Sistema:
 
     def login(self) -> bool:
         if not self.__login:
-            # acessa a pagina de login
             self._driver.get(self.__url)
             
             # seleciona o sistema e aguarda o carregamento
@@ -65,7 +62,6 @@ class Sistema:
                 self._driver.find_element_by_id("login.senha").send_keys(self.__password)
                 self._driver.find_element_by_id("entrar").click()
                 
-            # adiciona evento no log
             add_log(
                 'sigss_mv.py',
                 "Sistema.login",
@@ -83,6 +79,7 @@ class Sistema:
 
     def _logout(self) -> bool:
         if self.__login:
+            self._driver.get(self.__url)
             # seleciona o sistema e clica no botao de sair
             if self.sistema == 'MV':
                 self._driver.find_element_by_id("sair").click()
@@ -93,7 +90,6 @@ class Sistema:
                 self._driver.find_element_by_xpath("/html/body/header/div[3]/i[2]").click()
                 self._driver.switch_to.active_element.send_keys(Keys.ENTER)
 
-            # adiciona evento no log
             add_log(
                 'sigss_mv.py',
                 "Sistema._logout",
@@ -113,9 +109,16 @@ class Sistema:
             )
             return False
 
+    def _wait_and_click(self, locator):
+        sleep(0.5)
+        while len(self._driver.find_elements(*locator)) < 0:
+            sleep(1)
+        self._driver.find_element(*locator).click()
+        sleep(0.5)
+
     def close(self):
-        # if self.__login:
-        #     self._logout()
+        if self.__login:
+            self._logout()
         self._driver.close()
         self._driver.quit()
 
@@ -153,44 +156,25 @@ class Sigss(Sistema):
 
         self._driver.get(self.__URL_CADASTRO)
         self._driver.find_element(By.ID, 'searchString').send_keys(filter['nome'])
-        # self._driver.find_element(By.ID, 'searchStringBuscaUsuServico').send_keys(filter['nome'])
         
         def select_filter(self):
-            # self._driver.find_element(By.ID, 'searchFieldBusca_chzn').click()
             self.fill_date_form((By.ID, 'dataInicial'), filter['data'])
             self.fill_date_form((By.ID, 'dataFinal'), filter['data'])
             sleep(2)
-            # self._driver.find_element(By.ID, 'searchFieldBusca_chzn_o_1').click()
-            # self._driver.find_element(By.ID, 'searchStringBusca').send_keys(filter['codigo'])
-            # self._wdw.until(EC.element_to_be_clickable((By.ID, 'btnBusca')))
             self._driver.find_element(By.ID, 'btnBuscar').click()
-            sleep(5)
-            # !not working
-            # self._wdw.until(EC.element_located_to_be_selected((
-            #     By.XPATH,
-            #     '/html/body/div[5]/div[2]/main/div[2]/div[1]/form/div[4]/div/div[3]/div[3]/div/table/tbody/tr[2]/td[12]'
-            # )))
-            
-            # * works
-            # self._driver.find_element(
-            #     By.XPATH,
-            #     '/html/body/div[5]/div[2]/main/div[2]/div[1]/form/div[4]/div/div[3]/div[3]/div/table/tbody/tr[2]/td[12]'
-            # ).click()
-            self._driver.find_element(
-                By.XPATH, '/html/body/div[5]/div[2]/main/div[2]/div[1]/form/div[3]/div/div[3]/div[3]/div/table/tbody/tr[2]/td[6]'
-            ).click()
+            sleep(2)
+            self._wait_and_click(locator=(
+                By.XPATH,
+                '/html/body/div[5]/div[2]/main/div[2]/div[1]/form/div[3]/div/div[3]/div[3]/div/table/tbody/tr[2]/td[6]'
+            ))
             self._driver.find_element(By.ID, 'btnVisualizar').click()
-            sleep(5)
-            self._driver.find_element(By.ID, 'btnAlterar').click()
-            sleep(5)
+            sleep(3)
+            self._wait_and_click(locator=(By.ID, 'btnAlterar'))
+            sleep(3)
             self._driver.find_element(
                 By.XPATH, '//*[@id="form-manutencao"]/div[1]/div[1]/div[4]/div[1]/button'
             ).click()
             sleep(5)
-            # self._wdw.until(EC.element_located_to_be_selected((
-            #     By.ID,
-            #     'aba-cadastro'
-            # )))
 
         select_filter(self)
     
@@ -200,7 +184,6 @@ class Sigss(Sistema):
             if field == self.FIELDS['bairro']:
                 sleep(2)
                 self._driver.find_element(By.ID, 'ui-id-4').click()
-                # self._wdw.until(EC.element_to_be_selected((By.ID, 'aba-endereco')))
                 sleep(5)
 
             if field in [self.FIELDS['bairro'], self.FIELDS['logradouro']]:
@@ -208,6 +191,7 @@ class Sigss(Sistema):
             return self._driver.find_element(By.ID, field).get_attribute('value')
 
         for field, element in self.FIELDS.items():
+            sleep(0.3)
             self.data[field] = find_fields(self, element)
         
         add_log(
@@ -216,14 +200,12 @@ class Sigss(Sistema):
             'INFO',
             f'Dados do usuário {self.data["codigo"]} coletados com sucesso.'
         )
-        print(self.data)
         return self.data
 
 
 class MV(Sistema):
     def __init__(self):
         super().__init__()
-
 
     def get_request(self) -> bool:
         if self.login() is False:
@@ -242,26 +224,16 @@ class MV(Sistema):
         )
         data_final = (
             filter['data_final']
-            if filter['data_final'] is None
+            if filter['data_final'] is not None
             else None
         )
-        # TODO - Atribuir propriedade da classe Material
-        # beneficio = filter['beneficio'] if filter['beneficio'] in self.BENEFICIO else None
+
         beneficio = filter['beneficio'] if filter['beneficio'] != None else None
         fornecedor = filter['fornecedor'] if filter['fornecedor'] != None else self.FORNECEDOR
 
-        # def fill_date_form(self, locator, date):
-        #     d = self._driver.find_element(*locator)
-        #     d.send_keys(Keys.CONTROL, 'a')
-        #     d.send_keys(date)
-
         self.fill_date_form((By.NAME, 'data_ini'), data_inicial)
-        # fill_date_form(self, (By.NAME, 'data_ini'), data_inicial)
         if data_final != None:
             self.fill_date_form((By.NAME, 'data_fim'), data_final)
-            # fill_date_form(self, (By.NAME, 'data_fim'), data_final)
-
-        # form_page = self._driver.current_window_handle
         
         if beneficio != None:
             self.__fill_form(
@@ -306,6 +278,7 @@ class MV(Sistema):
                 path + f'/src/downloads/{file_name}'
             )
 
+        add_log("siggs_mv.py", "MV.__download_request", "info", "Download dos relatórios efetuado com sucesso.")
         self._driver.close()
         self._driver.switch_to.window(main_window)
 
@@ -337,20 +310,13 @@ class MV(Sistema):
 
 
 if __name__ == "__main__":
-    # sigss = Sigss()
-    # sigss.login()
-    # sigss.search_patient({'nome': 'ANTONIO GREGORIO', 'codigo': ''})
-    # sigss.get_values()
+    # mv = MV()
+    # mv.get_request()
+    # mv._logout()
+    # mv.close()
+    # sleep(5)
 
-    # args = {
-    #     'data_inicial': '01/05/2021',
-    #     'data_final': None,
-    #     # 'beneficio': 'ANDADOR',
-    #     'beneficio': None,
-    #     'fornecedor': None
-    # }
-    mv = MV()
-    # mv.login()
-    mv.get_request()
-    mv._logout()
-    sleep(5)
+
+    siggs = Sigss()
+    siggs.search_patient(filter={'nome': 'MARLON DANIEL ANGELI', 'data': '19/08/2021'})
+    print(siggs.get_values())

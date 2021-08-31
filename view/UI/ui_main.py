@@ -114,7 +114,8 @@ class UI_Main(object):
 
         # Cria o frame para o conteúdo das páginas
         self.content_frame = QFrame()
-        self.content_frame.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.494, y1:0, x2:0.511364, y2:1, stop:0 rgba(0, 0, 84, 255), stop:1 rgba(0, 35, 60, 255));")
+        self.content_frame.setObjectName(u'content_frame')
+        self.content_frame.setStyleSheet("#content_frame {background-color: qlineargradient(spread:pad, x1:0.494, y1:0, x2:0.511364, y2:1, stop:0 rgba(0, 0, 84, 255), stop:1 rgba(0, 35, 60, 255));}")
         self.content_frame_layout = QHBoxLayout(self.content_frame)
         self.content_frame_layout.setContentsMargins(0, 0, 0, 0)
         self.content_frame_layout.setSpacing(0)
@@ -133,6 +134,15 @@ class UI_Main(object):
         self.ui_pages.btn_change_reg.setEnabled(False)
         self.ui_pages.btn_view_reg.setEnabled(False)
         self.ui_pages.btn_again.setEnabled(False)
+        
+        # Enable buttons
+        # self.ui_pages.btn_update_reg.setEnabled(True)
+        # self.ui_pages.btn_verify_contacts.setEnabled(True)
+        # self.ui_pages.btn_send_messages.setEnabled(True)
+        # self.ui_pages.btn_generate_reports.setEnabled(True)
+        # self.ui_pages.btn_change_reg.setEnabled(True)
+        # self.ui_pages.btn_view_reg.setEnabled(True)
+        # self.ui_pages.btn_again.setEnabled(True)
 
         self.content_frame_layout.addWidget(self.pages)
         self.main_layout.addWidget(self.left_menu_frame)

@@ -421,24 +421,11 @@ class UI_Pages(object):
         self.splitter.setObjectName(u"splitter")
         self.splitter.setMinimumSize(QSize(0, 0))
         self.splitter.setMaximumSize(QSize(536, 44))
-        self.splitter.setStyleSheet(u"QPushButton {\n"
-"	color: white;\n"
-"	padding: 12px;\n"
-"	border-radius: 12px;\n"
-"	background: #A50000;\n"
-"	font-weight: bold;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background: #DB1F1F\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"	background: #fe5243;\n"
-"}")
         self.splitter.setOrientation(Qt.Horizontal)
         self.splitter.setOpaqueResize(True)
         self.splitter.setHandleWidth(24)
-        self.splitter.setChildrenCollapsible(True)
+        self.splitter.setChildrenCollapsible(False)
+        self.splitter.setStyleSheet(u"background-color: transparent;")
         self.btn_again = QPushButton(self.splitter)
         self.btn_again.setObjectName(u"btn_again")
         self.btn_again.setMinimumSize(QSize(256, 44))
@@ -467,6 +454,20 @@ class UI_Pages(object):
         self.btn_cancel.setObjectName(u"btn_cancel")
         self.btn_cancel.setMinimumSize(QSize(256, 44))
         self.btn_cancel.setMaximumSize(QSize(256, 44))
+        self.btn_cancel.setStyleSheet(u"QPushButton {\n"
+"	color: white;\n"
+"	padding: 12px;\n"
+"	border-radius: 12px;\n"
+"	background: #A50000;\n"
+"	font-weight: bold;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background: #DB1F1F\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"	background: #fe5243;\n"
+"}")
         self.splitter.addWidget(self.btn_cancel)
 
         self.verticalLayout_13.addWidget(self.splitter, 0, Qt.AlignHCenter)

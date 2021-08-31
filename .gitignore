@@ -3,8 +3,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,python
 
 # Add credentials to login in SIGSS
-src/config/
-src/tmp/
 .qt_for_python
 
 ### Python ###
@@ -21,7 +19,7 @@ __pycache__/
 build/
 develop-eggs/
 dist/
-downloads/
+# downloads/
 eggs/
 .eggs/
 lib/
@@ -66,7 +64,7 @@ cover/
 *.pot
 
 # Django stuff:
-*.log
+# *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal

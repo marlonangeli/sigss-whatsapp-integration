@@ -31,10 +31,11 @@ class Paciente:
 
         telefone = [self.__validate_phone(phone) for phone in phone_numbers]
         endereco = f"{_data['logradouro']} - {_data['bairro']} - {_data['numero']}"
+        add_log("paciente.py", "get_dataframe", "info", f"Dados lidos e ajustados ==> {_data['codigo']}")
         return pd.DataFrame([{
             'Cod': _data['codigo'],
             'Name': _data['nome'],
-            'Phone': pd.Series(telefone).values,
+            'Phones': pd.Series(telefone).values,
             'Address': endereco,
             'Birthday': _data['data_nascimento'],
             'Mother': _data['nome_mae'],

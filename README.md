@@ -5,22 +5,10 @@
 Pelo terminal, acesse a pasta raiz do projeto e execute o comando:
 
 ```ps
-python -m venv venv
-```
-O comando acima cria um ambiente virtual para o projeto, para ativar o ambiente, execute:
-
-```ps
-.\venv\Scripts\Activate.ps1
-```
-
-Com o ambiente ativate, atualiza o instalador de pacotes do Python:
-
-```ps
-python -m pip install --upgrade pip
-```
-
-Com o **pip** atualizado, instale os as dependencias do projeto:
-
-```ps
+python -m venv venv && 
+.\venv\Scripts\Activate.ps1 && 
+python -m pip install --upgrade pip && 
 pip install -r requirements.txt
 ```
+
+O código acima instala o ambiente, ativa, atualiza o pip e instala as dependências do projeto.

@@ -8,10 +8,11 @@ path = os.path.abspath(os.getcwd())
 sys.path.append(path + '\\src')
 
 from tools.reader import Reader
+from tools.logs import add_log
 
 class Material:
     def __init__(self, file_name='MV_relatorio'):
-        self._file_name = file_name
+        self.__file_name = file_name
 
         self.__andador = 'ANDADOR'
         self.__cadeira_de_rodas = 'CADEIRA DE RODAS'
@@ -99,9 +100,9 @@ class Material:
 
     def get_dataframe(self, verify=False, type='pdf'):
         if type == 'pdf':
-            _df_aux = Reader().read_pdf(f'{self._file_name}.pdf')
+            _df_aux = Reader().read_pdf(f'{self.__file_name}.pdf')
         elif type == 'xls':
-            _df_aux = Reader().read_excel(f'{self._file_name}.xls')
+            _df_aux = Reader().read_excel(f'{self.__file_name}.xls')
 
         df_material = pd.DataFrame(_df_aux)
         for index in range(len(_df_aux)):
@@ -109,6 +110,7 @@ class Material:
                 df_material.drop(index, axis=0, inplace=True)
 
         df_material.reset_index(drop=True, inplace=True)
+        add_log('material.py', 'get_dataframe', 'info', 'Devoluções removidas do DataFrame')
         return df_material
 
 
