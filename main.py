@@ -416,8 +416,9 @@ class MainWindow(QMainWindow):
         if self.__execution:
             alert = QMessageBox()
             alert.about(self, 'ALERTA', "Ainda há processos em execução")
-        if self.whatsapp.is_logged:
-            self.whatsapp.delete()
+        if self.__whatsapp_is_opened:
+            if self.whatsapp.is_logged:
+                self.whatsapp.delete()
         else:
             self.__finish = True
             self.loop(1)
