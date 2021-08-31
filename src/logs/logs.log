@@ -1,35 +1,167 @@
-2021-08-30 23:34:19 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
-2021-08-30 23:34:25 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
-2021-08-30 23:34:28 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
-2021-08-30 23:34:29 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
-2021-08-30 23:34:36 - [material.py]>[get_dataframe] INFO: Devoluções removidas do DataFrame
-2021-08-30 23:34:43 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-08-30 23:35:15 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 3607-6 coletados com sucesso.
-2021-08-30 23:35:15 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 3607-6
-2021-08-30 23:35:45 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 11677-6 coletados com sucesso.
-2021-08-30 23:35:45 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 11677-6
-2021-08-30 23:36:16 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 3607-6 coletados com sucesso.
-2021-08-30 23:36:16 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 3607-6
-2021-08-30 23:36:46 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 394152-7 coletados com sucesso.
-2021-08-30 23:36:46 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 394152-7
-2021-08-30 23:37:17 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 5828-6 coletados com sucesso.
-2021-08-30 23:37:17 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 5828-6
-2021-08-30 23:37:48 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 1936-6 coletados com sucesso.
-2021-08-30 23:37:48 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 1936-6
-2021-08-30 23:38:19 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 4787-7 coletados com sucesso.
-2021-08-30 23:38:19 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 4787-7
-2021-08-30 23:38:50 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 13796-6 coletados com sucesso.
-2021-08-30 23:38:50 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 13796-6
-2021-08-30 23:39:21 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 13796-6 coletados com sucesso.
-2021-08-30 23:39:21 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 13796-6
-2021-08-30 23:39:53 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 6436-6 coletados com sucesso.
-2021-08-30 23:39:53 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 6436-6
-2021-08-30 23:40:32 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 57832-8 coletados com sucesso.
-2021-08-30 23:40:32 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 57832-8
-2021-08-30 23:41:05 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 827-6 coletados com sucesso.
-2021-08-30 23:41:05 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 827-6
-2021-08-30 23:41:37 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 474-6 coletados com sucesso.
-2021-08-30 23:41:37 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 474-6
-2021-08-30 23:41:38 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema SIGSS efetuado com sucesso: MARLONANGELI
-2021-08-30 23:41:40 - [emprestimo.py]>[get_dataframe] INFO: Dados do DataFrame atualizados.
-2021-08-30 23:41:41 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 00:54:34 - Novo arquivo de log
+
+--------------------------------------------------------------------------------
+
+2021-08-31 00:55:50 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 00:55:56 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 00:55:59 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 00:56:00 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 01:07:00 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 01:07:06 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 01:07:09 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 01:07:10 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 01:09:41 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 01:09:46 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 01:09:50 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 01:09:51 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 01:09:58 - [material.py]>[get_dataframe] INFO: Devoluções removidas do DataFrame
+2021-08-31 01:10:38 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 01:10:44 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 01:10:48 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 01:10:49 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 01:15:13 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 01:15:22 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 01:15:25 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 01:15:27 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 01:18:21 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 01:18:27 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 01:18:30 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 01:18:31 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 01:18:38 - [material.py]>[get_dataframe] INFO: Devoluções removidas do DataFrame
+2021-08-31 01:18:43 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
+2021-08-31 01:19:14 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 3607-6 coletados com sucesso.
+2021-08-31 01:19:14 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 3607-6
+2021-08-31 01:19:45 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 11677-6 coletados com sucesso.
+2021-08-31 01:19:45 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 11677-6
+2021-08-31 01:20:16 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 3607-6 coletados com sucesso.
+2021-08-31 01:20:16 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 3607-6
+2021-08-31 01:20:47 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 394152-7 coletados com sucesso.
+2021-08-31 01:20:47 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 394152-7
+2021-08-31 01:21:18 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 5828-6 coletados com sucesso.
+2021-08-31 01:21:18 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 5828-6
+2021-08-31 01:22:01 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 1936-6 coletados com sucesso.
+2021-08-31 01:22:01 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 1936-6
+2021-08-31 01:22:34 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 4787-7 coletados com sucesso.
+2021-08-31 01:22:34 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 4787-7
+2021-08-31 01:23:04 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 13796-6 coletados com sucesso.
+2021-08-31 01:23:04 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 13796-6
+2021-08-31 01:23:35 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 13796-6 coletados com sucesso.
+2021-08-31 01:23:35 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 13796-6
+2021-08-31 01:24:10 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 6436-6 coletados com sucesso.
+2021-08-31 01:24:10 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 6436-6
+2021-08-31 01:24:40 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 57832-8 coletados com sucesso.
+2021-08-31 01:24:40 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 57832-8
+2021-08-31 01:25:10 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 827-6 coletados com sucesso.
+2021-08-31 01:25:10 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 827-6
+2021-08-31 01:25:41 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 474-6 coletados com sucesso.
+2021-08-31 01:25:41 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 474-6
+2021-08-31 01:25:42 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema SIGSS efetuado com sucesso: MARLONANGELI
+2021-08-31 01:25:44 - [emprestimo.py]>[get_dataframe] INFO: Dados do DataFrame atualizados.
+2021-08-31 01:25:46 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:26:22 - [whatsapp.py]>[login] LOGIN: Login efetuado com sucesso :NASF Itaipulandia
+2021-08-31 01:26:29 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> 4599242824
+2021-08-31 01:26:42 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:26:48 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> 4535421120
+2021-08-31 01:27:06 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4797871755
+2021-08-31 01:27:16 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:27:22 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> 4599242824
+2021-08-31 01:27:35 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:27:41 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4599046648
+2021-08-31 01:27:56 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4599808073
+2021-08-31 01:28:06 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:28:12 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4598417325
+2021-08-31 01:28:22 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:28:27 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4599918514
+2021-08-31 01:28:37 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:28:43 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4599270625
+2021-08-31 01:28:58 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4599270625
+2021-08-31 01:29:08 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:29:14 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4598198381
+2021-08-31 01:29:24 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:29:29 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4598198381
+2021-08-31 01:29:39 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:29:45 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4591355947
+2021-08-31 01:29:55 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:30:01 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4591463393
+2021-08-31 01:30:16 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4591142613
+2021-08-31 01:30:26 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:30:32 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> 4591243247
+2021-08-31 01:30:45 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:30:50 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4591399573
+2021-08-31 01:31:00 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 01:35:20 - [whatsapp.py]>[login] LOGIN: Login efetuado com sucesso :NASF Itaipulandia
+2021-08-31 01:58:10 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 01:58:16 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 01:58:19 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 01:58:20 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 01:58:27 - [material.py]>[get_dataframe] INFO: Devoluções removidas do DataFrame
+2021-08-31 01:58:31 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
+2021-08-31 01:59:02 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 827-6 coletados com sucesso.
+2021-08-31 01:59:02 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 827-6
+2021-08-31 01:59:33 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 474-6 coletados com sucesso.
+2021-08-31 01:59:33 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 474-6
+2021-08-31 01:59:34 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema SIGSS efetuado com sucesso: MARLONANGELI
+2021-08-31 01:59:36 - [emprestimo.py]>[get_dataframe] INFO: Dados do DataFrame atualizados.
+2021-08-31 01:59:37 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 02:04:20 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 02:04:26 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 02:04:29 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 02:04:30 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 02:04:37 - [material.py]>[get_dataframe] INFO: Devoluções removidas do DataFrame
+2021-08-31 02:04:42 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
+2021-08-31 02:05:12 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 827-6 coletados com sucesso.
+2021-08-31 02:05:12 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 827-6
+2021-08-31 02:05:43 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 474-6 coletados com sucesso.
+2021-08-31 02:05:43 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 474-6
+2021-08-31 02:05:44 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema SIGSS efetuado com sucesso: MARLONANGELI
+2021-08-31 02:05:46 - [emprestimo.py]>[get_dataframe] INFO: Dados do DataFrame atualizados.
+2021-08-31 02:05:47 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 02:06:53 - [whatsapp.py]>[login] LOGIN: Login efetuado com sucesso :NASF Itaipulandia
+2021-08-31 02:06:59 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> 4591243247
+2021-08-31 02:07:18 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> on
+2021-08-31 02:07:36 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> on
+2021-08-31 02:07:49 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 02:07:55 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4591399573
+2021-08-31 02:08:10 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> on
+2021-08-31 02:08:29 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> on
+2021-08-31 02:08:42 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 02:16:20 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 02:16:26 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 02:16:29 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 02:16:30 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 02:16:36 - [material.py]>[get_dataframe] INFO: Devoluções removidas do DataFrame
+2021-08-31 02:16:41 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
+2021-08-31 02:17:13 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 827-6 coletados com sucesso.
+2021-08-31 02:17:13 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 827-6
+2021-08-31 02:17:44 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 474-6 coletados com sucesso.
+2021-08-31 02:17:44 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 474-6
+2021-08-31 02:17:44 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema SIGSS efetuado com sucesso: MARLONANGELI
+2021-08-31 02:17:47 - [emprestimo.py]>[get_dataframe] INFO: Dados do DataFrame atualizados.
+2021-08-31 02:17:49 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 02:18:29 - [whatsapp.py]>[login] LOGIN: Login efetuado com sucesso :NASF Itaipulandia
+2021-08-31 02:18:36 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> 4591243247
+2021-08-31 02:18:54 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> on
+2021-08-31 02:19:13 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> on
+2021-08-31 02:19:26 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 02:19:32 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4591399573
+2021-08-31 02:19:47 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> on
+2021-08-31 02:20:05 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> on
+2021-08-31 02:20:18 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 02:30:43 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 02:30:49 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 02:30:52 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-31 02:30:53 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-31 02:31:00 - [material.py]>[get_dataframe] INFO: Devoluções removidas do DataFrame
+2021-08-31 02:31:05 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
+2021-08-31 02:31:36 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 827-6 coletados com sucesso.
+2021-08-31 02:31:36 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 827-6
+2021-08-31 02:32:07 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 474-6 coletados com sucesso.
+2021-08-31 02:32:07 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 474-6
+2021-08-31 02:32:13 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema SIGSS efetuado com sucesso: MARLONANGELI
+2021-08-31 02:32:15 - [emprestimo.py]>[get_dataframe] INFO: Dados do DataFrame atualizados.
+2021-08-31 02:32:16 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 02:33:08 - [whatsapp.py]>[login] LOGIN: Login efetuado com sucesso :NASF Itaipulandia
+2021-08-31 02:33:15 - [whatsapp.py]>[verify_number] INFO: Número não é válido ==> 4591243247
+2021-08-31 02:33:28 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx
+2021-08-31 02:33:33 - [whatsapp.py]>[verify_number] INFO: Número válido ==> 4591399573
+2021-08-31 02:33:43 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx

@@ -1,4 +1,8 @@
-from src.services.os_path_core import *
+import os
+import sys
+path = os.path.abspath(os.getcwd())
+sys.path.append(path)
+
 from src.services.pandas_core import *
 import tabula as tb
 

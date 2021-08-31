@@ -21,23 +21,13 @@ dataframe.drop(
     axis=1,
     inplace=True
 )
-print(dataframe)
-"""
-dataframe['WhatsApp Phones'] = 1
-print(dataframe)
+def get_phone_from_string(string: str):
+    range_phones = string[1:-1].split(' ')
+    return [x for x in range_phones]
+
+df_check = dataframe.isnull()
 for index in range(len(dataframe)):
-    range_phones = dataframe.loc[index, 'Phones'][1:-1].split(' ')
-    range_phones = [x[1:-1] for x in range_phones if x != 'False']
+    if not df_check.loc[index, 'WhatsApp Phones']:
+        dataframe.loc[index, 'WhatsApp Phones'] = get_phone_from_string(dataframe.loc[index, 'WhatsApp Phones'])
 
-    phones = [phone for phone in range_phones if randint(0, 2) != 0]
-    # print(index, pd.Series(phones).values, dataframe.loc[index, 'Phones'])
-    if phones:
-        print(index, phones, dataframe.loc[index, 'Phones'], end=' ')
-        print(dataframe.loc[index, 'WhatsApp Phones'])
-        dataframe.loc[index, 'WhatsApp Phones'] = f'{pd.Series(phones).values}'
-        print(dataframe.loc[index, 'WhatsApp Phones'])
-    else:
-        dataframe.loc[index, 'WhatsApp Phones'] = pd.Series([False]).values
-    # print(index, phones)
-
-print(dataframe)"""
+print(dataframe)

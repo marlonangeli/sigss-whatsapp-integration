@@ -1,4 +1,8 @@
-from src.services.os_path_core import *
+import os
+import sys
+path = os.path.abspath(os.getcwd())
+sys.path.append(path)
+
 from src.services.functions_core import *
 from src.services.models_core import *
 from src.services.pandas_core import *
@@ -17,10 +21,10 @@ _Contatos:_
 E-mail: nasfitaipulandiapr@gmail.com
 Coordenadora do NASF: Camila Fernanda de Souza - (45) 99143-2728 / (45) 3559-1731"""
 
+PATH_TMP_FILE = "./src/tmp/tmp.txt"
+
 class Emprestimo:
     def __init__(self, remove_material=True, file_name='MV_relatorio'):
-        with open(path + '/src/tmp/tmp.txt', 'w') as aux:
-            aux.write("0;15")
         __mv = MV()
         __mv.get_request()
         __mv.close()
@@ -30,6 +34,8 @@ class Emprestimo:
             self._df_aux = Material().get_dataframe(verify=True, type='pdf')
         else:    
             self._df_aux = self.__reader.read_pdf(f'{self._file_name}.pdf')
+        with open(path + '/src/tmp/tmp.txt', 'w') as aux:
+            aux.write(f"0;{len(self._df_aux)}")
         self.finished = False
         self.__whatsapp_is_open = False
 
@@ -38,13 +44,13 @@ class Emprestimo:
         self.__paciente = Paciente()
         self.df_paciente = pd.DataFrame()
         for index in range(len(self._df_aux)):
+            with open(path + PATH_TMP_FILE, 'w') as aux:
+                aux.write(f"{index};{len(self._df_aux)}")
             df = self.__paciente.get_dataframe(
                 self._df_aux.loc[index, 'Usuário de Serviço'],
                 self._df_aux.loc[index, 'Data'],
             )
             self.df_paciente = self.df_paciente.append(df, ignore_index=True)
-            with open(path + '/src/tmp/tmp.txt', 'w') as aux:
-                aux.write(f"{index};{len(self._df_aux)}")
 
         self.__paciente.sigss.close()
         self.df_paciente.insert(3, "Date", self._df_aux['Data'])

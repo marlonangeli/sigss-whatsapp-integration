@@ -1,4 +1,8 @@
-from src.services.os_path_core import *
+import os
+import sys
+path = os.path.abspath(os.getcwd())
+sys.path.append(path)
+
 from src.services.selenium_core import *
 from src.services.functions_core import *
 
@@ -9,7 +13,7 @@ class WhatsApp:
         self.__login = False
         self.__verify_number = False
         self.__username = None
-        self.__webdriver_path = '.\\src\\services\\chromedriver.exe'
+        self.__webdriver_path = WEBDRIVER_PATH
         options = Options()
         # options.add_argument('--headless')
         self.__driver = webdriver.Chrome(self.__webdriver_path, options=options)
@@ -54,11 +58,12 @@ class WhatsApp:
         if not self.__login:
             self.__driver.get('https://web.whatsapp.com/')
             sleep(3)
-            if os.path.exists('src\\tmp\\qr_code.png'):
-                os.remove('src\\tmp\\qr_code.png')
+            if os.path.exists('./src/tmp/qr_code.png'):
+                os.remove('./src/tmp/qr_code.png')
             # faz a verificação de leitura do qr code
             count = 0
-            while len(self.__driver.find_elements_by_class_name('_3OvU8')) > 0:
+            print(self.__driver.find_elements(By.CLASS_NAME, '_3OvU8'))
+            while len(self.__driver.find_elements(By.CLASS_NAME, '_3OvU8')) < 1:
                 # limita a execução do programa até que o qr code esteja disponível
                 if self.__cancel:
                     add_log("whatsapp.py", 'login', 'info', 'Login cancelado')
@@ -74,8 +79,11 @@ class WhatsApp:
 
                 try:
                     # obtém a captura do qr code para colocá-lo na interface gráfica do sistema
-                    qr_code = self.__driver.find_element_by_xpath('//*[@id="app"]/div[1]/div/div[2]/div[1]/div/div[2]/div/canvas')
-                    qr_code.screenshot('src\\tmp\\qrcode.png')
+                    qr_code = self.__driver.find_element(
+                        By.XPATH,
+                        '//*[@id="app"]/div[1]/div/div[2]/div[1]/div/div[2]/div/canvas'
+                    )
+                    qr_code.screenshot('./src/tmp/qr_code.png')
 
                 except Exception as e:
                     if count > 1:
@@ -85,7 +93,9 @@ class WhatsApp:
                     sleep(5)
                     count += 1
 
-            if len(self.__driver.find_elements_by_class_name('_3OvU8')) > 0:
+            print('saí do while')
+
+            if len(self.__driver.find_elements(By.CLASS_NAME, '_3OvU8')) > 0:
                 self.__login = True
                 
                 sleep(3)
@@ -138,10 +148,10 @@ class WhatsApp:
             return False
 
         # remove o qr code e a imagem do usuário da pasta tmp
-        if os.path.exists('src\\tmp\\qr_code.png'):
-            os.remove('src\\tmp\\qr_code.png')
-        if os.path.exists('src\\tmp\\img_user.png'):
-            os.remove('src\\tmp\\img_user.png')
+        if os.path.exists('./src/tmp/qr_code.png'):
+            os.remove('./src/tmp/qr_code.png')
+        if os.path.exists('./src/tmp/img_user.png'):
+            os.remove('./src/tmp/img_user.png')
 
         return True
 
@@ -163,7 +173,7 @@ class WhatsApp:
             sleep(5)
             self._wait_and_click(locator=(By.XPATH, '//*[@id="main"]/footer/div[1]/div[2]/div/div[2]/button'))
             sleep(5)
-            add_log('whatsapp.py', 'send_message', 'info', f'Mensagem enviada ==> {self.numero}')
+            add_log('whatsapp.py', 'send_message', 'info', f'Mensagem enviada para {self.numero} em {get_date()}')
             return True
         except Exception as e:
             add_log('whatsapp.py', 'send_message', 'erro', f'Não foi possível enviar a mensagem, erro: {e} ==> {self.nome}')
@@ -203,10 +213,10 @@ class WhatsApp:
     def delete(self):
         if self.__login:
             self.logout()
-        if os.path.exists('src\\tmp\\qrcode.png'):
-            os.remove('src\\tmp\\qrcode.png')
-        if os.path.exists('src\\tmp\\img_user.png'):
-            os.remove('src\\tmp\\img_user.png')
+        if os.path.exists('./src/tmp/qr_code.png'):
+            os.remove('./src/tmp/qr_code.png')
+        if os.path.exists('./src/tmp/img_user.png'):
+            os.remove('./src/tmp/img_user.png')
         self.__driver.quit()
 
 

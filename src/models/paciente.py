@@ -1,4 +1,8 @@
-from src.services.os_path_core import *
+import os
+import sys
+path = os.path.abspath(os.getcwd())
+sys.path.append(path)
+
 from src.services.pandas_core import *
 from src.services.functions_core import *
 from src.services.sigss_mv import *
@@ -14,14 +18,16 @@ class Paciente:
         self.data_emprestimo = data_emprestimo
         _data = self.__get_data()
 
-        # todo - ajustar numeros de telefone com uma funcao
         phone_numbers = [
             _data['ddd1'] + _data['telefone1'],
             _data['ddd2'] + _data['telefone2'],
             _data['ddd3'] + _data['telefone3'],
         ]
 
-        telefone = [self.__validate_phone(phone) for phone in phone_numbers]
+        telefone = [
+            self.__validate_phone(phone) for phone in phone_numbers
+            if self.__validate_phone(phone) is not False
+        ]
         endereco = f"{_data['logradouro']} - {_data['bairro']} - {_data['numero']}"
         add_log("paciente.py", "get_dataframe", "info", f"Dados lidos e ajustados ==> {_data['codigo']}")
         return pd.DataFrame([{

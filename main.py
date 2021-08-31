@@ -1,4 +1,8 @@
-from src.services.os_path_core import *
+import os
+import sys
+path = os.path.abspath(os.getcwd())
+sys.path.append(path)
+
 from src.services.models_core import *
 from src.services.functions_core import *
 from src.services.sigss_mv import *
@@ -11,17 +15,16 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from view.UI.ui_main import UI_Main
 
+PATH_TMP_FILE = "./src/tmp/tmp.txt"
 
 class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
         self.setWindowTitle("SWI")
         self.setWindowIcon(QIcon("./view/UI/images/icons/icon.png"))
         self.__finish = False
         self.__execution = False
         self.__whatsapp_is_opened = False
-
 
         self.ui = UI_Main()
         self.ui.setupUi(self)
@@ -128,8 +131,9 @@ class MainWindow(QMainWindow):
         self.emprestimo = Emprestimo(remove_material=True)
         self.th2 = Thread(target=self.emprestimo.get_dataframe)
         self.th2.start()
-        qtde_reg = self.__counter(PATH_TMP_FILE)[1]
-        time_notification = f"{qtde_reg} registros encontrados, tempo estimado: {str(timedelta(seconds=15*qtde_reg))[3:]}"
+        print(self.__counter(PATH_TMP_FILE))
+        qtde_reg = self.__counter(PATH_TMP_FILE)
+        time_notification = f"{qtde_reg[1]} registros encontrados, tempo estimado: {str(timedelta(seconds=30*qtde_reg[1]))[3:]}"
         self.ui.ui_pages.label_notifications.setText(time_notification)
         self.ui.ui_pages.btn_update_reg.setEnabled(False)
         
@@ -178,7 +182,7 @@ class MainWindow(QMainWindow):
             self.dataframe = pd.read_excel("./docs/relatorio.xlsx")
             self.show_home_page()
             qtde_contacts = len(self.dataframe)
-            time_notification = f"{qtde_contacts} contatos encontrados, tempo estimado: {str(timedelta(seconds=15*qtde_contacts))[3:]}"
+            time_notification = f"{qtde_contacts} contatos encontrados, tempo estimado: {str(timedelta(seconds=25*qtde_contacts))[3:]}"
             self.change_notification(time_notification)
             self.ui.ui_pages.btn_verify_contacts.setEnabled(False)
             
@@ -199,12 +203,12 @@ class MainWindow(QMainWindow):
                         result = async_result.get()
                         if result:
                             phones_verified.append(phone)
-                        self.loop(5)
+                        self.loop(10)
 
                 if phones_verified:
                     self.dataframe.loc[index, "WhatsApp Phones"] = f'{pd.Series(phones_verified).values}'
-                else:
-                    self.dataframe.loc[index, "WhatsApp Phones"] = pd.Series([False]).values
+                # else:
+                #     self.dataframe.loc[index, "WhatsApp Phones"] = pd.Series(['False']).values
                 self.emprestimo.save_dataframe(self.dataframe)
 
             self.ui.ui_pages.btn_send_messages.setEnabled(True)
@@ -220,6 +224,7 @@ class MainWindow(QMainWindow):
         self.whatsapp = WhatsApp()
         self.th = Thread(target=self.whatsapp.login)
         self.th.start()
+        # self.__pool.apply_async(self.whatsapp.login)
 
         self.cancel_operation = False
 
@@ -233,6 +238,7 @@ class MainWindow(QMainWindow):
 
     
         def logged(self):
+            self.__whatsapp_is_opened = True
             self.ui.ui_pages.timer.setValue(0)
             self.change_notification("Login no WhatsApp realizado com sucesso.")
             self.ui.pages.setCurrentWidget(self.ui.ui_pages.home_page)
@@ -248,8 +254,8 @@ class MainWindow(QMainWindow):
                 break
             if self.cancel_operation:
                 break
-            if os.path.exists("src/tmp/qrcode.png"):
-                self.ui.ui_pages.label_img_qr_code.setPixmap(QPixmap('src/tmp/qrcode.png'))
+            if os.path.exists("./src/tmp/qr_code.png"):
+                self.ui.ui_pages.label_img_qr_code.setPixmap(QPixmap('./src/tmp/qr_code.png'))
             self.loop(1)
             timer(self, i)
 
@@ -274,6 +280,7 @@ class MainWindow(QMainWindow):
 
     def send_message(self):
         self.__execution = True
+        # verifica se existe uma instancia da classe WhatsApp
         if not self.__whatsapp_is_opened:
             self.show_qr_code()
         if self.whatsapp.is_logged:
@@ -287,18 +294,19 @@ class MainWindow(QMainWindow):
                 "funcionando até o fim do processo.")
             
             for index in range(len(self.dataframe)):
-                # self.progress_bar((index+1) * (100 / len(self.dataframe)))
-                Thread(target=self.progress_bar, args=((index+1) * (100 / len(self.dataframe)),)).start()
-                phones = self.get_phone_from_string(string=self.dataframe.loc[index, "WhatsApp Phones"])
-                for phone in phones:
-                    if phone is not False:
+                self.progress_bar((index+1) * (100 / len(self.dataframe)))
+                # Thread(target=self.progress_bar, args=((index+1) * (100 / len(self.dataframe)),)).start()
+                print(self.dataframe.loc[index, 'WhatsApp Phones'])
+                if self.dataframe.loc[index, 'WhatsApp Phones']:
+                    phones = self.get_phone_from_string(string=self.dataframe.loc[index, 'WhatsApp Phones'])
+                    for phone in phones:
                         interval_dates = (
                             datetime.strptime(self.dataframe.loc[index, "Date Devolution"], "%d/%m/%Y") -
                             datetime.strptime(get_date(), "%d/%m/%Y")
                         )
                         if interval_dates.days <= 0:
-                            # self.whatsapp.numero = phone
-                            # self.whatsapp.send_message(message=self.dataframe.loc[index, "Message"])
+                            self.whatsapp.numero = phone
+                            self.whatsapp.send_message(message=self.dataframe.loc[index, "Message"])
                             self.loop(randint(45, 120))
                             print(f'mensagem enviada para -> {phone}')
 
@@ -414,7 +422,7 @@ class MainWindow(QMainWindow):
         else:
             self.__finish = True
             self.loop(1)
-            self.__logger.get()
+            # self.__logger.get()
             # del self.th
             # del self.th2
             self.close()
@@ -461,9 +469,9 @@ class MainWindow(QMainWindow):
         self.animation.setEasingCurve(QEasingCurve.InOutCirc)
         self.animation.start()
 
-    def get_phone_from_string(self, string):
+    def get_phone_from_string(self, string: str):
         range_phones = string[1:-1].split(' ')
-        return [x[1:-1] for x in range_phones if x != 'False']
+        return [x[1:-1] for x in range_phones]
 
     def update_logs(self):
         while not self.__finish:
