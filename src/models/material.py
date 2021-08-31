@@ -23,7 +23,7 @@ class Material:
         self.__cama_hospitalar = 'CAMA HOSPITALAR'
         self.__colchao_caixa_de_ovo = 'COLCHAO CAIXA DE OVO'
         self.__colchao_de_agua = 'COLCHAO D AGUA'
-        self.__devolucao = ' - DEVOLUCAO'
+        self.__devolucao = 'DEVOLUCAO'
         self.__all = [
             self.__andador,
             self.__cadeira_de_rodas,
@@ -91,7 +91,7 @@ class Material:
         return material + self.__devolucao
 
     def verify(self, material) -> bool:
-        if material in self.__all:
+        if material.split(' - ')[0] in self.__all:
             return self.__devolucao in material # true
         return False
 
@@ -112,5 +112,5 @@ class Material:
 
 
 if __name__ == '__main__':
-    for material in Material():
-        print(material)
+    material = Material()
+    print(material.get_dataframe(verify=True))

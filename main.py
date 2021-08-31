@@ -55,6 +55,12 @@ class MainWindow(QMainWindow):
         # Button view reg
         self.ui.ui_pages.btn_view_reg.clicked.connect(self.view_reg_file)
 
+        # Button change reg
+        self.ui.ui_pages.btn_change_reg.clicked.connect(self.change_reg_file)
+
+        # Button generate report
+        self.ui.ui_pages.btn_generate_reports.clicked.connect(self.generate_reports)
+
         # Close notification
         self.ui.ui_pages.btn_close_notification.clicked.connect(self.ui.ui_pages.frame_notifications.hide)
 
@@ -85,7 +91,6 @@ class MainWindow(QMainWindow):
 
         # Button view log
         self.ui.ui_pages.btn_view_log.clicked.connect(self.view_log_file)
-
 
         # ===========================================================
         # LOGOFF PAGE
@@ -265,7 +270,6 @@ class MainWindow(QMainWindow):
         self.ui.pages.setCurrentWidget(self.ui.ui_pages.home_page)
         print('Cancelado')
 
-
     def send_message(self):
         self.__execution = True
         # verifica se existe uma instancia da classe WhatsApp
@@ -284,10 +288,10 @@ class MainWindow(QMainWindow):
             df_check = self.dataframe.isnull()
             for index in range(len(self.dataframe)):
                 self.progress_bar((index+1) * (100 / len(self.dataframe)))
-                # Thread(target=self.progress_bar, args=((index+1) * (100 / len(self.dataframe)),)).start()
                 if not df_check.loc[index, 'WhatsApp Phones']:
                     phones = self.get_phone_from_string(string=self.dataframe.loc[index, 'WhatsApp Phones'])
                     for phone in phones:
+                        print(phone, ' <- ', phones)
                         interval_dates = (
                             datetime.strptime(self.dataframe.loc[index, "Date Devolution"], "%d/%m/%Y") -
                             datetime.strptime(get_date(), "%d/%m/%Y")
@@ -295,10 +299,10 @@ class MainWindow(QMainWindow):
                         if interval_dates.days <= 0:
                             self.whatsapp.numero = phone
                             self.whatsapp.send_message(message=self.dataframe.loc[index, "Message"])
-                            self.loop(randint(45, 120))
+                            self.dataframe.loc[index, "Date Message Send"] = get_date()
                             print(f'mensagem enviada para -> {phone}')
+                            self.loop(randint(45, 120))
 
-                self.dataframe.loc[index, "Date Message Send"] = get_date()
                 self.emprestimo.save_dataframe(self.dataframe)
 
             self.ui.ui_pages.btn_generate_reports.setEnabled(True)
@@ -313,6 +317,12 @@ class MainWindow(QMainWindow):
     def change_reg_file(self):
         self.__execution = True
         self.change_notification("Abrindo arquivo de registro...")
+        os.system(".\\docs\\relatorio.xlsx")
+        self.__execution = False
+
+    def generate_reports(self):
+        self.__execution = True
+        self.change_notification("Gerando relatório...")
         os.system(".\\docs\\relatorio.xlsx")
         self.__execution = False
 
@@ -406,6 +416,8 @@ class MainWindow(QMainWindow):
         if self.__execution:
             alert = QMessageBox()
             alert.about(self, 'ALERTA', "Ainda há processos em execução")
+        if self.whatsapp.is_logged:
+            self.whatsapp.delete()
         else:
             self.__finish = True
             self.loop(1)
@@ -458,7 +470,7 @@ class MainWindow(QMainWindow):
 
     def get_phone_from_string(self, string: str):
         range_phones = string[1:-1].split(' ')
-        return [x for x in range_phones]
+        return [x[1:-1] for x in range_phones]
 
     def update_logs(self):
         while not self.__finish:

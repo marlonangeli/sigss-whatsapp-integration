@@ -23,11 +23,10 @@ dataframe.drop(
 )
 def get_phone_from_string(string: str):
     range_phones = string[1:-1].split(' ')
-    return [x for x in range_phones]
+    return [x[1:-1] for x in range_phones]
 
 df_check = dataframe.isnull()
 for index in range(len(dataframe)):
     if not df_check.loc[index, 'WhatsApp Phones']:
-        dataframe.loc[index, 'WhatsApp Phones'] = get_phone_from_string(dataframe.loc[index, 'WhatsApp Phones'])
-
-print(dataframe)
+        phones = get_phone_from_string(dataframe.loc[index, 'WhatsApp Phones'])
+        print(phones)
