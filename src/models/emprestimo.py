@@ -1,17 +1,8 @@
-from datetime import datetime, timedelta
-import sys
-import os
-
-path = os.path.abspath(os.getcwd())
-sys.path.append(path)
-
-from src.models.paciente import Paciente
-from src.models.material import Material
-from src.tools.reader import Reader
-from src.tools.logs import add_log
-from src.services.sigss_mv import Sigss, MV
-import pandas as pd
-import numpy as np
+from src.services.os_path_core import *
+from src.services.functions_core import *
+from src.services.models_core import *
+from src.services.pandas_core import *
+from src.services.sigss_mv import *
 
 MESSAGE = """Olá, esta é uma _mensagem automática_ de um sistema do *NASF Itaipulândia*.
 Informamos que o/a paciente *{0}* tem como registro, um empréstimo de *{1}* em nosso sistema.

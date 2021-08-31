@@ -128,7 +128,7 @@ class UI_Main(object):
 
         # Disable buttons
         self.ui_pages.btn_update_reg.setEnabled(False)
-        self.ui_pages.btn_verify_contacts.setEnabled(False)
+        self.ui_pages.btn_verify_contacts.setEnabled(True)
         self.ui_pages.btn_send_messages.setEnabled(False)
         self.ui_pages.btn_generate_reports.setEnabled(False)
         self.ui_pages.btn_change_reg.setEnabled(False)

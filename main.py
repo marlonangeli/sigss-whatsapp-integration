@@ -1,28 +1,16 @@
-from datetime import timedelta
+from src.services.os_path_core import *
+from src.services.models_core import *
+from src.services.functions_core import *
+from src.services.sigss_mv import *
+from src.services.pandas_core import *
+from src.services.thread_core import *
 from functools import partial
 from random import randint
-from time import sleep
-import os
-import sys
-from json import JSONDecoder, dump
-from threading import Thread
-from multiprocessing.pool import ThreadPool
-import pandas as pd
-import numpy as np
-
-path = os.path.abspath(os.getcwd())
-
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-
 from view.UI.ui_main import UI_Main
 
-from src.models.whatsapp import WhatsApp
-from src.models.emprestimo import Emprestimo
-from src.tools.date import get_date
-
-PATH_TMP_FILE = "./src/tmp/tmp.txt"
 
 class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
@@ -42,8 +30,8 @@ class MainWindow(QMainWindow):
         self.progress_bar(0)
 
         # Thread(target=self.update_logs).start()
-        pool = ThreadPool(processes=1)
-        self.__logger = pool.apply_async(func=self.update_logs)
+        self.__pool = ThreadPool(processes=3)
+        self.__logger = self.__pool.apply_async(func=self.update_logs)
 
         # ===========================================================
         # HOME PAGE
@@ -129,7 +117,7 @@ class MainWindow(QMainWindow):
         self.th.start()
         self.progress_bar(0)
         # self.th.join()
-        del self.th
+        # del self.th
 
 
     def update_reg(self):
@@ -162,7 +150,7 @@ class MainWindow(QMainWindow):
 
 
         # self.th2.join()
-        del self.th2
+        # del self.th2
         self.ui.ui_pages.btn_verify_contacts.setEnabled(True)
         self.update()
         # df = async_result.get()
@@ -205,8 +193,8 @@ class MainWindow(QMainWindow):
                 phones = self.get_phone_from_string(string=self.dataframe.loc[index, 'Phones'])
                 for phone in phones:
                     if phone:
-                        pool = ThreadPool(processes=1)
-                        async_result = pool.apply_async(verify_contact, (phone,))
+                        # pool = ThreadPool(processes=1)
+                        async_result = self.__pool.apply_async(verify_contact, (phone,))
                         # Thread(target=verify_contact, args=(phone,)).start()
                         result = async_result.get()
                         if result:
@@ -249,7 +237,7 @@ class MainWindow(QMainWindow):
             self.change_notification("Login no WhatsApp realizado com sucesso.")
             self.ui.pages.setCurrentWidget(self.ui.ui_pages.home_page)
             self.th.join()
-            del self.th
+            # del self.th
 
         
         self.ui.pages.setCurrentWidget(self.ui.ui_pages.qr_code)
@@ -268,7 +256,7 @@ class MainWindow(QMainWindow):
         if not self.whatsapp.is_logged:
             self.ui.ui_pages.btn_again.setEnabled(True)
             self.ui.ui_pages.btn_cancel.setEnabled(False)
-            del self.th
+            # del self.th
             self.whatsapp.delete()
 
 
@@ -277,7 +265,7 @@ class MainWindow(QMainWindow):
         self.whatsapp.cancel = True
         self.ui.ui_pages.timer.setValue(0)
 
-        del self.th
+        # del self.th
         self.whatsapp.delete()
         self.change_notification(message="Login no WhatsApp cancelado")
         self.ui.pages.setCurrentWidget(self.ui.ui_pages.home_page)
@@ -391,7 +379,6 @@ class MainWindow(QMainWindow):
     # INFO PAGE
     def show_info_page(self):
         self.reset_selection()
-        self.change_notification("Abrindo arquivo de log...")
         self.ui.pages.setCurrentWidget(self.ui.ui_pages.info_page)
         self.ui.button_info.set_active(True)
 
@@ -428,6 +415,8 @@ class MainWindow(QMainWindow):
             self.__finish = True
             self.loop(1)
             self.__logger.get()
+            # del self.th
+            # del self.th2
             self.close()
 
 

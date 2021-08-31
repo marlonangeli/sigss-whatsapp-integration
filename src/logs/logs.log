@@ -1,0 +1,35 @@
+2021-08-30 23:34:19 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-30 23:34:25 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-30 23:34:28 - [siggs_mv.py]>[MV.__download_request] INFO: Download dos relatórios efetuado com sucesso.
+2021-08-30 23:34:29 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema MV efetuado com sucesso: MARLONANGELI
+2021-08-30 23:34:36 - [material.py]>[get_dataframe] INFO: Devoluções removidas do DataFrame
+2021-08-30 23:34:43 - [sigss_mv.py]>[Sistema.login] INFO: Login no sistema SIGSS efetuado com sucesso: MARLONANGELI
+2021-08-30 23:35:15 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 3607-6 coletados com sucesso.
+2021-08-30 23:35:15 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 3607-6
+2021-08-30 23:35:45 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 11677-6 coletados com sucesso.
+2021-08-30 23:35:45 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 11677-6
+2021-08-30 23:36:16 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 3607-6 coletados com sucesso.
+2021-08-30 23:36:16 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 3607-6
+2021-08-30 23:36:46 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 394152-7 coletados com sucesso.
+2021-08-30 23:36:46 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 394152-7
+2021-08-30 23:37:17 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 5828-6 coletados com sucesso.
+2021-08-30 23:37:17 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 5828-6
+2021-08-30 23:37:48 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 1936-6 coletados com sucesso.
+2021-08-30 23:37:48 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 1936-6
+2021-08-30 23:38:19 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 4787-7 coletados com sucesso.
+2021-08-30 23:38:19 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 4787-7
+2021-08-30 23:38:50 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 13796-6 coletados com sucesso.
+2021-08-30 23:38:50 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 13796-6
+2021-08-30 23:39:21 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 13796-6 coletados com sucesso.
+2021-08-30 23:39:21 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 13796-6
+2021-08-30 23:39:53 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 6436-6 coletados com sucesso.
+2021-08-30 23:39:53 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 6436-6
+2021-08-30 23:40:32 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 57832-8 coletados com sucesso.
+2021-08-30 23:40:32 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 57832-8
+2021-08-30 23:41:05 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 827-6 coletados com sucesso.
+2021-08-30 23:41:05 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 827-6
+2021-08-30 23:41:37 - [sigss_mv.py]>[get_values] INFO: Dados do usuário 474-6 coletados com sucesso.
+2021-08-30 23:41:37 - [paciente.py]>[get_dataframe] INFO: Dados lidos e ajustados ==> 474-6
+2021-08-30 23:41:38 - [sigss_mv.py]>[Sistema._logout] INFO: Logout no sistema SIGSS efetuado com sucesso: MARLONANGELI
+2021-08-30 23:41:40 - [emprestimo.py]>[get_dataframe] INFO: Dados do DataFrame atualizados.
+2021-08-30 23:41:41 - [emprestimo.py]>[save_dataframe] INFO: Dados do DataFrame salvo em: C:\Users\marlo\Dropbox\Dev\Python\Projects\sigss-whatsapp-integration/docs/relatorio.xlsx

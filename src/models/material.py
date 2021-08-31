@@ -1,14 +1,7 @@
-#!./venv/Scripts/python.exe
+from src.services.os_path_core import *
+from src.services.pandas_core import *
+from src.services.functions_core import *
 
-import pandas as pd
-import sys
-import os
-
-path = os.path.abspath(os.getcwd())
-sys.path.append(path + '\\src')
-
-from tools.reader import Reader
-from tools.logs import add_log
 
 class Material:
     def __init__(self, file_name='MV_relatorio'):

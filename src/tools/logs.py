@@ -1,13 +1,4 @@
-
-# TODO - Registro de logs
-# TODO - Manipulacao do registro
-# TODO - Leitura dos relatorios do SIGSS
-# TODO - limpeza dos dados
-# TODO - adicionar ao registro
-
 from datetime import datetime
-import os, sys
-
 
 def reset_logs():
     with open('src\\logs\\logs.log', 'w') as arq:

@@ -1,14 +1,6 @@
-import sys
-import os
-
-path = os.path.abspath(os.getcwd())
-sys.path.append(path + '\\src')
-
-from services.selenium_core import *
-from time import sleep
-from urllib import parse, request
-
-from tools.logs import add_log
+from src.services.os_path_core import *
+from src.services.selenium_core import *
+from src.services.functions_core import *
 
 class WhatsApp:
     def __init__(self):

@@ -1,17 +1,6 @@
-import sys
-import os
-
-path = os.path.abspath(os.getcwd())
-sys.path.append(path + '\\src')
-
-from json.decoder import JSONDecoder
-from time import sleep
-from urllib import request
-
-from services.selenium_core import *
-
-from tools.logs import add_log
-
+from src.services.os_path_core import *
+from src.services.functions_core import *
+from src.services.selenium_core import *
 
 class Sistema:
     FORNECEDOR = 'NASF'

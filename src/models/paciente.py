@@ -1,16 +1,8 @@
-#!./venv/Scripts/python.exe
+from src.services.os_path_core import *
+from src.services.pandas_core import *
+from src.services.functions_core import *
+from src.services.sigss_mv import *
 
-import sys
-import os
-import pandas as pd
-
-path = os.path.abspath(os.getcwd())
-sys.path.append(path + '\\src')
-
-# from whatsapp import WhatsApp
-from services.sigss_mv import Sigss, MV
-from tools.logs import add_log
-from tools.reader import Reader
 
 class Paciente:
     def __init__(self):
