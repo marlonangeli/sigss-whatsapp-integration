@@ -114,14 +114,12 @@ class MainWindow(QMainWindow):
         self.ui.ui_pages.btn_update_reg.setEnabled(True)
         self.progress_bar(100)
 
-
     def thread(self):
         self.th = Thread(target=self.update_reg)
         self.th.start()
         self.progress_bar(0)
         # self.th.join()
         # del self.th
-
 
     def update_reg(self):
         self.__execution = True
@@ -163,14 +161,6 @@ class MainWindow(QMainWindow):
         self.ui.ui_pages.btn_view_reg.setEnabled(True)
         self.ui.ui_pages.btn_change_reg.setEnabled(True)
         self.__execution = False
-        
-
-    def __counter(self, file):
-        if os.path.exists(file):
-            with open(file, "r") as f:
-                aux = f.read().split(";")
-                return [int(aux[0]), int(aux[1])]
-
 
     def verify_contacts(self):
         self.__execution = True
@@ -216,7 +206,6 @@ class MainWindow(QMainWindow):
         else:
             self.change_notification("É necessário fazer login no WhatsApp para enviar mensagens.")
         self.__execution = False
-
 
     def show_qr_code(self):
         self.ui.ui_pages.btn_cancel.setEnabled(True)
@@ -265,7 +254,6 @@ class MainWindow(QMainWindow):
             # del self.th
             self.whatsapp.delete()
 
-
     def cancel_login(self):
         self.cancel_operation = True
         self.whatsapp.cancel = True
@@ -293,11 +281,11 @@ class MainWindow(QMainWindow):
                 "isso é necessário para evitar possíveis bloqueios na conta do WhatsApp, é recomendado deixar o sistema "
                 "funcionando até o fim do processo.")
             
+            df_check = self.dataframe.isnull()
             for index in range(len(self.dataframe)):
                 self.progress_bar((index+1) * (100 / len(self.dataframe)))
                 # Thread(target=self.progress_bar, args=((index+1) * (100 / len(self.dataframe)),)).start()
-                print(self.dataframe.loc[index, 'WhatsApp Phones'])
-                if self.dataframe.loc[index, 'WhatsApp Phones']:
+                if not df_check.loc[index, 'WhatsApp Phones']:
                     phones = self.get_phone_from_string(string=self.dataframe.loc[index, 'WhatsApp Phones'])
                     for phone in phones:
                         interval_dates = (
@@ -360,7 +348,6 @@ class MainWindow(QMainWindow):
         self.verify_settings()
         self.change_notification("Configurações atualizadas.")
         self.show_home_page()
-
 
     def verify_settings(self):
         self.__credentials = JSONDecoder().decode(str(open("./src/config/credentials.json", "r").read()))
@@ -471,7 +458,7 @@ class MainWindow(QMainWindow):
 
     def get_phone_from_string(self, string: str):
         range_phones = string[1:-1].split(' ')
-        return [x[1:-1] for x in range_phones]
+        return [x for x in range_phones]
 
     def update_logs(self):
         while not self.__finish:
@@ -485,6 +472,12 @@ class MainWindow(QMainWindow):
     def change_notification(self, message):
         self.ui.ui_pages.label_notifications.setText(message)
         self.ui.ui_pages.frame_notifications.show()
+
+    def __counter(self, file):
+        if os.path.exists(file):
+            with open(file, "r") as f:
+                aux = f.read().split(";")
+                return [int(aux[0]), int(aux[1])]
 
 
 if __name__ == "__main__":
